@@ -22,6 +22,12 @@ public class CheckList {
         this.remarks = remarks;
     }
 
+    public CheckList(String checklist){
+
+
+        this.checklist = checklist;
+
+    }
 
     // getting ID
     public int getId(){
