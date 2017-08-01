@@ -41,6 +41,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
 
+
+
     }
 
     @Override
@@ -48,7 +50,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_WORKAREA);
+        ContentValues values = new ContentValues();
+        values.put(Constants.KEY_CHECKLIST, "Is Server okay?");
 
+
+        // Inserting Row
+        db.insert(Constants.TABLE_WORKAREA, null, values);
+        db.close(); // Closing database connection
         // Create tables again
         onCreate(db);
 
@@ -92,6 +100,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 chklist.add(checkList);
             } while (cursor.moveToNext());
         }
+
 
         // return contact list
         return chklist;

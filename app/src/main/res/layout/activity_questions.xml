@@ -12,6 +12,6 @@
        android:layout_height="wrap_content"
        android:textSize="18dp"
        android:id="@+id/ques"
-       android:text="hello"/>
+       android:text=""/>
 
 </LinearLayout>
