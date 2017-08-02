@@ -1,9 +1,9 @@
 package com.hksapps.audit;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,6 +16,20 @@ public class Questions extends AppCompatActivity {
 
         TextView ques = (TextView) findViewById(R.id.ques);
         DatabaseHandler db = new DatabaseHandler(this);
+
+
+
+        if(db.IsWorkAreaTableEmpty()){
+            db.addChecklists(new CheckList("Is Server Okay?"));
+            db.addChecklists(new CheckList("Is Server Secured?"));
+            db.addChecklists(new CheckList("Is Everything okay?"));
+            db.addChecklists(new CheckList("Is it Fast?"));
+            db.addChecklists(new CheckList("Is it Working fine?"));
+            Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
+        }
+
+
+
 
        /* Log.d("Insert: ", "Inserting ..");
         db.addChecklists(new CheckList("Is Server Okay?"));

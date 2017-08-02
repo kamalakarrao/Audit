@@ -3,10 +3,8 @@ package com.hksapps.audit;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,16 +48,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_WORKAREA);
-        ContentValues values = new ContentValues();
-        values.put(Constants.KEY_CHECKLIST, "Is Server okay?");
 
-
-        // Inserting Row
-        db.insert(Constants.TABLE_WORKAREA, null, values);
-        db.close(); // Closing database connection
         // Create tables again
         onCreate(db);
 
+    }
+
+
+    public boolean IsWorkAreaTableEmpty(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String count = "SELECT count(*) FROM " + Constants.TABLE_WORKAREA;;
+        Cursor mcursor = db.rawQuery(count, null);
+        mcursor.moveToFirst();
+        int icount = mcursor.getInt(0);
+        if(icount>0){
+          return false;
+        }else
+            return true;
     }
 
 
