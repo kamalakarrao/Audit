@@ -18,7 +18,7 @@ public class Questions extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
 
 
-
+//Check work area table is empty or not
         if(db.IsWorkAreaTableEmpty()){
             db.addChecklists(new CheckList("Is Server Okay?"));
             db.addChecklists(new CheckList("Is Server Secured?"));
@@ -46,7 +46,7 @@ public class Questions extends AppCompatActivity {
         }
         String txt="";
         for(CheckList con : allChecklists){
-             txt = txt +con.getChecklist()+"\\n";
+             txt = txt +con.getChecklist();
             ques.setText(txt);
         }
 
