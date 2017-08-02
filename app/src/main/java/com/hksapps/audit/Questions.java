@@ -44,12 +44,16 @@ public class Questions extends AppCompatActivity {
         for (CheckList details : allChecklists) {
             builder.append(details + "\n");
         }
-        String txt="";
+       /* String txt="";
         for(CheckList con : allChecklists){
              txt = txt +con.getChecklist();
             ques.setText(txt);
+        }*/
+        String[] Q={};
+        for(int i=0;i<allChecklists.size();i++)
+        {
+            Q[i] = String.valueOf(allChecklists.indexOf(i));
         }
-
 
     }
 }
