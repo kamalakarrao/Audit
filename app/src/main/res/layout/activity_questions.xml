@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.hksapps.audit.Questions">
 
 
@@ -13,5 +15,26 @@
        android:textSize="18dp"
        android:id="@+id/ques"
        android:text=""/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous"
+        android:id="@+id/previous"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/next"/>
+
+</LinearLayout>
+
+
+
 
 </LinearLayout>

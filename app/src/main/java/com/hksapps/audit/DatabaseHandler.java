@@ -82,6 +82,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+
+
+
+
+
+
     // Getting All Contacts
     public List<CheckList> getAllChecklists() {
         List<CheckList> chklist = new ArrayList<CheckList>();
