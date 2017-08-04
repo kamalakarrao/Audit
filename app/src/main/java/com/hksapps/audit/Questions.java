@@ -3,6 +3,8 @@ package com.hksapps.audit;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,8 +13,8 @@ import java.util.List;
 
 public class Questions extends AppCompatActivity {
 
-
-    int j=1;
+    static TextView ques;
+     static int j=1;
 
     ArrayList<String> question_chk;
 
@@ -21,7 +23,7 @@ public class Questions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
 
-        final TextView ques = (TextView) findViewById(R.id.ques);
+         ques = (TextView) findViewById(R.id.ques);
         DatabaseHandler db = new DatabaseHandler(this);
 
 
@@ -63,8 +65,42 @@ public class Questions extends AppCompatActivity {
 
         }
 
+        ques.setText(question_chk.get(0));
+
+        Button next = (Button) findViewById(R.id.next);
+        Button previous = (Button) findViewById(R.id.previous);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
+                if(j>=question_chk.size()-1){
+                    Toast.makeText(Questions.this, "full", Toast.LENGTH_SHORT).show();
+                }else {
+
+                        j++;
+                        ques.setText(question_chk.get(j));
+                }
+            }
+        });
+
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(j<=0){
+                    Toast.makeText(Questions.this, "First Question", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    j--;
+                    ques.setText(question_chk.get(j));
+
+                }
+
+            }
+        });
 
 
 
