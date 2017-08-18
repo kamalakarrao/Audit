@@ -35,6 +35,7 @@ public class Questions extends AppCompatActivity {
 
         switch (value){
             case 1: table_name = Constants.TABLE_WORKAREA;
+                j=0;
                 if(db.IsTableEmpty(table_name)){
                     db.addChecklists(new CheckList("Is work area Okay?"),table_name);
                     db.addChecklists(new CheckList("Is workspace Secured?"),table_name);
@@ -46,6 +47,7 @@ public class Questions extends AppCompatActivity {
                 break;
 
             case 2: table_name = Constants.TABLE_SERVERROOM;
+                j=0;
                 if(db.IsTableEmpty(table_name)){
                     db.addChecklists(new CheckList("Is Server Okay?"),table_name);
                     db.addChecklists(new CheckList("Is Server Secured?"),table_name);
@@ -57,6 +59,7 @@ public class Questions extends AppCompatActivity {
                 break;
 
             case 3: table_name = Constants.TABLE_ELECTRICALROOM;
+                j=0;
                 if(db.IsTableEmpty(table_name)){
                     db.addChecklists(new CheckList("Is Electrical room Okay?"),table_name);
                     db.addChecklists(new CheckList("Is Electrical room Secured?"),table_name);
@@ -68,6 +71,7 @@ public class Questions extends AppCompatActivity {
                 break;
 
             case 4: table_name = Constants.TABLE_SECURITYROOM;
+                j=0;
                 if(db.IsTableEmpty(table_name)){
                     db.addChecklists(new CheckList("Is Security room Okay?"),table_name);
                     db.addChecklists(new CheckList("Is Security room Secured?"),table_name);
@@ -80,6 +84,7 @@ public class Questions extends AppCompatActivity {
 
 
             case 5: table_name = Constants.TABLE_UPSROOM;
+                j=0;
                 if(db.IsTableEmpty(table_name)){
                     db.addChecklists(new CheckList("Is UPS room Okay?"),table_name);
                     db.addChecklists(new CheckList("Is UPS room Secured?"),table_name);
@@ -93,6 +98,7 @@ public class Questions extends AppCompatActivity {
 
 
             case 6: table_name = Constants.TABLE_COMMONAREA;
+                j=0;
                 if(db.IsTableEmpty(table_name)){
                     db.addChecklists(new CheckList("Is Common area Okay?"),table_name);
                     db.addChecklists(new CheckList("Is Common area Secured?"),table_name);
@@ -152,12 +158,17 @@ public class Questions extends AppCompatActivity {
 
 
                 if(j>=question_chk.size()-1){
-                    Toast.makeText(Questions.this, "full", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(Questions.this, "All Questions are done!" , Toast.LENGTH_SHORT).show();
+
+
                 }else {
 
                         j++;
                         ques.setText(question_chk.get(j));
                 }
+
+                Toast.makeText(Questions.this, String.valueOf(j) , Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -166,14 +177,15 @@ public class Questions extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(j<=0){
-                    Toast.makeText(Questions.this, "First Question", Toast.LENGTH_SHORT).show();
 
+                    Toast.makeText(Questions.this, "This is 1st Question" , Toast.LENGTH_SHORT).show();
                 }
                 else {
                     j--;
                     ques.setText(question_chk.get(j));
 
                 }
+
 
             }
         });
