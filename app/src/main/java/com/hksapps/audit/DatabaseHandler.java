@@ -31,15 +31,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_WORKAREA_TABLE = "CREATE TABLE " + Constants.TABLE_WORKAREA + "("
+       CreateTable(db,Constants.TABLE_WORKAREA);
+       CreateTable(db,Constants.TABLE_SERVERROOM);
+       CreateTable(db,Constants.TABLE_ELECTRICALROOM);
+       CreateTable(db,Constants.TABLE_SECURITYROOM);
+       CreateTable(db,Constants.TABLE_UPSROOM);
+       CreateTable(db,Constants.TABLE_COMMONAREA);
+
+
+
+
+    }
+
+    private void CreateTable(SQLiteDatabase db,String table_name){
+
+        String CREATE_WORKAREA_TABLE = "CREATE TABLE " + table_name + "("
                 + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_CHECKLIST + " TEXT,"
                 + Constants.KEY_YES + " TEXT" + Constants.KEY_NO + " TEXT" + Constants.KEY_REMARKS + " TEXT" + ")";
         db.execSQL(CREATE_WORKAREA_TABLE);
 
+    }
 
 
+    private void DropTable(SQLiteDatabase db,String table_name){
 
-
+        db.execSQL("DROP TABLE IF EXISTS " + table_name);
 
     }
 
@@ -47,7 +63,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_WORKAREA);
+     DropTable(db,Constants.TABLE_WORKAREA);
+     DropTable(db,Constants.TABLE_SERVERROOM);
+     DropTable(db,Constants.TABLE_ELECTRICALROOM);
+     DropTable(db,Constants.TABLE_SECURITYROOM);
+     DropTable(db,Constants.TABLE_UPSROOM);
+     DropTable(db,Constants.TABLE_COMMONAREA);
+
 
         // Create tables again
         onCreate(db);
@@ -55,9 +77,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public boolean IsWorkAreaTableEmpty(){
+    public boolean IsTableEmpty(String table_name){
         SQLiteDatabase db = this.getWritableDatabase();
-        String count = "SELECT count(*) FROM " + Constants.TABLE_WORKAREA;;
+        String count = "SELECT count(*) FROM " + table_name;;
         Cursor mcursor = db.rawQuery(count, null);
         mcursor.moveToFirst();
         int icount = mcursor.getInt(0);
@@ -68,7 +90,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public void addChecklists(CheckList checklist) {
+    public void addChecklists(CheckList checklist,String table_name) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -76,7 +98,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
         // Inserting Row
-        db.insert(Constants.TABLE_WORKAREA, null, values);
+        db.insert(table_name, null, values);
         db.close(); // Closing database connection
 
 
@@ -89,10 +111,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
     // Getting All Contacts
-    public List<CheckList> getAllChecklists() {
+    public List<CheckList> getAllChecklists(String table_name) {
         List<CheckList> chklist = new ArrayList<CheckList>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + Constants.TABLE_WORKAREA;
+        String selectQuery = "SELECT  * FROM " + table_name;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
