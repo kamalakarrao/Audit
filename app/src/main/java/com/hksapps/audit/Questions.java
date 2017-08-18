@@ -159,6 +159,7 @@ public class Questions extends AppCompatActivity {
 
                 if(j>=question_chk.size()-1){
 
+
                     Toast.makeText(Questions.this, "All Questions are done!" , Toast.LENGTH_SHORT).show();
 
 

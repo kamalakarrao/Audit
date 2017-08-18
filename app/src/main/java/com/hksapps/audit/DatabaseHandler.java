@@ -18,13 +18,15 @@ import static com.hksapps.audit.Constants.DATABASE_NAME;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-
+    Context ctx;
     public DatabaseHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+         ctx = context;
+
     }
 
 
@@ -37,6 +39,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
        CreateTable(db,Constants.TABLE_SECURITYROOM);
        CreateTable(db,Constants.TABLE_UPSROOM);
        CreateTable(db,Constants.TABLE_COMMONAREA);
+
+
 
 
 
@@ -100,6 +104,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(table_name, null, values);
         db.close(); // Closing database connection
+
 
 
     }

@@ -1,11 +1,19 @@
 package com.hksapps.audit;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.ajts.androidmads.library.SQLiteToExcel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         TextView SecurityRoom = (TextView) findViewById(R.id.securityroom);
         TextView UpsRoom = (TextView) findViewById(R.id.upsroom);
         TextView CommonArea = (TextView) findViewById(R.id.commonarea);
+
+        Button exp = (Button) findViewById(R.id.export);
 
 
         WorkArea.setOnClickListener(new View.OnClickListener() {
@@ -121,5 +131,64 @@ Intent i = new Intent(MainActivity.this,Questions.class);
             }
         });
 
+
+
+
+        exp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (isStoragePermissionGranted()) {
+
+
+                    SQLiteToExcel sqliteToExcel = new SQLiteToExcel(MainActivity.this, "audit.db");
+                    sqliteToExcel.exportSingleTable(Constants.TABLE_WORKAREA,"Auditing_Test_Excel.xls", new SQLiteToExcel.ExportListener() {
+                        @Override
+                        public void onStart() {
+                            Toast.makeText(MainActivity.this, "Started Exporting", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCompleted(String filePath) {
+
+                            Toast.makeText(MainActivity.this, "File is saved at " + filePath, Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+
+                            Toast.makeText(MainActivity.this, "Error Occured " + e, Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }
+            }
+        });
+
+
+
+
+
+
+
+    }
+
+
+
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            return true;
+        }
     }
 }
