@@ -51,7 +51,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         String CREATE_WORKAREA_TABLE = "CREATE TABLE " + table_name + "("
                 + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_CHECKLIST + " TEXT,"
-                + Constants.KEY_YES + " TEXT" + Constants.KEY_NO + " TEXT" + Constants.KEY_REMARKS + " TEXT" + ")";
+                + Constants.KEY_YES + " TEXT," + Constants.KEY_NO + " TEXT," + Constants.KEY_REMARKS + " TEXT" + ")";
         db.execSQL(CREATE_WORKAREA_TABLE);
 
     }

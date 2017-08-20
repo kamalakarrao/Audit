@@ -141,8 +141,8 @@ Intent i = new Intent(MainActivity.this,Questions.class);
                 if (isStoragePermissionGranted()) {
 
 
-                    SQLiteToExcel sqliteToExcel = new SQLiteToExcel(MainActivity.this, "audit.db");
-                    sqliteToExcel.exportSingleTable(Constants.TABLE_WORKAREA,"Auditing_Test_Excel.xls", new SQLiteToExcel.ExportListener() {
+                    SQLiteToExcel sqliteToExcel = new SQLiteToExcel(MainActivity.this, "audit");
+                    sqliteToExcel.exportAllTables("Auditing_Test_Excel.xlsx", new SQLiteToExcel.ExportListener() {
                         @Override
                         public void onStart() {
                             Toast.makeText(MainActivity.this, "Started Exporting", Toast.LENGTH_SHORT).show();
