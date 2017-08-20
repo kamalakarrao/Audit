@@ -37,6 +37,7 @@ public class Questions extends AppCompatActivity {
             case 1: table_name = Constants.TABLE_WORKAREA;
                 j=0;
                 if(db.IsTableEmpty(table_name)){
+
                     db.addChecklists(new CheckList("Is work area Okay?"),table_name);
                     db.addChecklists(new CheckList("Is workspace Secured?"),table_name);
                     db.addChecklists(new CheckList("Is work okay?"),table_name);

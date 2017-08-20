@@ -110,6 +110,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
+    public void addAnswers(CheckList checklist,String table_name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Constants.KEY_YES, checklist.getYes());
+        values.put(Constants.KEY_NO, checklist.getNo());
+        values.put(Constants.KEY_REMARKS, checklist.getRemarks());
+
+
+        // Inserting Row
+        db.insert(table_name, null, values);
+        db.close(); // Closing database connection
+
+
+
+    }
+
+
 
 
 
