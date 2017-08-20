@@ -149,9 +149,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 checkList.setId(Integer.parseInt(cursor.getString(0)));
                 checkList.setChecklist(cursor.getString(1));
 
-             /*   checkList.setYes(cursor.getString(2));
+                checkList.setYes(cursor.getString(2));
                 checkList.setNo(cursor.getString(3));
-                checkList.setRemarks(cursor.getString(4));*/
+                checkList.setRemarks(cursor.getString(4));
                 // Adding contact to list
                 chklist.add(checkList);
             } while (cursor.moveToNext());

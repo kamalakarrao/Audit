@@ -227,6 +227,7 @@ public class Questions extends AppCompatActivity {
             yes_chk.add(con.getYes());
             no_chk.add(con.getNo());
             String temp1 = con.getRemarks();
+            Toast.makeText(this,temp1, Toast.LENGTH_SHORT).show();
             remarks_chk.add(temp1);
 
         }
