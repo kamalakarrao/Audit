@@ -18,14 +18,14 @@ import java.util.List;
 public class Questions extends AppCompatActivity {
 
     static TextView ques;
-    EditText remarks;
+   static EditText remarks;
     RadioButton yesno;
     RadioGroup grp;
     DatabaseHandler db;
      static int j=1;
     String table_name;
 
-    ArrayList<String> question_chk;
+    ArrayList<String> question_chk,yes_chk,no_chk,remarks_chk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,24 +140,10 @@ public class Questions extends AppCompatActivity {
         db.addChecklists(new CheckList("Is it Fast?"));
         db.addChecklists(new CheckList("Is it Working fine?"));
 */
-        List<CheckList> allChecklists = db.getAllChecklists(table_name);
 
-        StringBuilder builder = new StringBuilder();
-        for (CheckList details : allChecklists) {
-            builder.append(details + "\n");
-        }
+            getDataFromDb();
 
 
-        Log.e("size check list ", String.valueOf(allChecklists.size()));
-
-         question_chk=new ArrayList<>();
-        for(CheckList con : allChecklists) {
-            String temp = con.getChecklist();
-            question_chk.add(temp);
-
-        }
-
-        ques.setText(question_chk.get(0));
 
         Button next = (Button) findViewById(R.id.next);
         Button previous = (Button) findViewById(R.id.previous);
@@ -170,8 +156,8 @@ public class Questions extends AppCompatActivity {
                 if(j>=question_chk.size()-1){
 
                     StoreAnswersInDb(table_name,j+1);
-                    grp.clearCheck();
-                    remarks.setText("");
+
+
 
                     Log.d("Value", String.valueOf(j));
 
@@ -182,9 +168,10 @@ public class Questions extends AppCompatActivity {
 
                     StoreAnswersInDb(table_name,j+1);
                     grp.clearCheck();
-                    remarks.setText("");
+
                         j++;
                         ques.setText(question_chk.get(j));
+
 
                 }
 
@@ -215,6 +202,37 @@ public class Questions extends AppCompatActivity {
 
 
 
+    }
+
+    private void getDataFromDb(){
+
+        List<CheckList> allChecklists = db.getAllChecklists(table_name);
+
+      /*  StringBuilder builder = new StringBuilder();
+        for (CheckList details : allChecklists) {
+            builder.append(details + "\n");
+        }*/
+
+
+        Log.e("size check list ", String.valueOf(allChecklists.size()));
+
+        question_chk=new ArrayList<>();
+        yes_chk = new ArrayList<>();
+        no_chk = new ArrayList<>();
+        remarks_chk = new ArrayList<>();
+        for(CheckList con : allChecklists) {
+
+            String temp = con.getChecklist();
+            question_chk.add(temp);
+            yes_chk.add(con.getYes());
+            no_chk.add(con.getNo());
+            String temp1 = con.getRemarks();
+            remarks_chk.add(temp1);
+
+        }
+
+        ques.setText(question_chk.get(0));
+        remarks.setText(remarks_chk.get(0));
     }
 
 
