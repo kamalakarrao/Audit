@@ -29,6 +29,15 @@ public class CheckList {
 
     }
 
+    public CheckList(String yes,String no,String remarks){
+
+
+        this.yes = yes;
+        this.no = no;
+        this.remarks = remarks;
+
+    }
+
     // getting ID
     public int getId(){
         return this.id;

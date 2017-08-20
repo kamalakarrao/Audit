@@ -110,7 +110,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public void addAnswers(CheckList checklist,String table_name) {
+    public void addAnswers(CheckList checklist,String table_name,int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -120,7 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
         // Inserting Row
-        db.insert(table_name, null, values);
+        db.update(table_name,values, "id="+id , null);
         db.close(); // Closing database connection
 
 

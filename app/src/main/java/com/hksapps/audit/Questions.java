@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +18,10 @@ import java.util.List;
 public class Questions extends AppCompatActivity {
 
     static TextView ques;
+    EditText remarks;
+    RadioButton yesno;
+    RadioGroup grp;
+    DatabaseHandler db;
      static int j=1;
     String table_name;
 
@@ -31,7 +38,9 @@ public class Questions extends AppCompatActivity {
 
 
         ques = (TextView) findViewById(R.id.ques);
-        DatabaseHandler db = new DatabaseHandler(this);
+        remarks = (EditText) findViewById(R.id.remarks);
+
+         db = new DatabaseHandler(this);
 
         switch (value){
             case 1: table_name = Constants.TABLE_WORKAREA;
@@ -160,14 +169,23 @@ public class Questions extends AppCompatActivity {
 
                 if(j>=question_chk.size()-1){
 
+                    StoreAnswersInDb(table_name,j+1);
+                    grp.clearCheck();
+                    remarks.setText("");
+
+                    Log.d("Value", String.valueOf(j));
 
                     Toast.makeText(Questions.this, "All Questions are done!" , Toast.LENGTH_SHORT).show();
 
 
                 }else {
 
+                    StoreAnswersInDb(table_name,j+1);
+                    grp.clearCheck();
+                    remarks.setText("");
                         j++;
                         ques.setText(question_chk.get(j));
+
                 }
 
                 Toast.makeText(Questions.this, String.valueOf(j) , Toast.LENGTH_SHORT).show();
@@ -197,5 +215,41 @@ public class Questions extends AppCompatActivity {
 
 
 
+    }
+
+
+    private String getRadioButtonChoice(){
+        grp = (RadioGroup) findViewById(R.id.grp);
+
+        if(grp.getCheckedRadioButtonId()==-1){
+
+            return "";
+
+
+        }else {
+
+            int selectedId = grp.getCheckedRadioButtonId();
+
+            yesno = (RadioButton) findViewById(selectedId);
+
+            return yesno.getText().toString();
+        }
+
+    }
+
+
+    private void StoreAnswersInDb(String t_name,int id_no){
+        String y , n;
+        if(getRadioButtonChoice().equals("Yes")) {
+            y = "yes";
+            n = "";
+        }else if(getRadioButtonChoice().equals("No")){
+            y = "";
+            n = "no";
+        }else {
+            y="";
+            n="";
+        }
+        db.addAnswers(new CheckList(y,n,remarks.getText().toString()),t_name,id_no);
     }
 }
