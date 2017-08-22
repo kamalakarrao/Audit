@@ -144,7 +144,9 @@ public class Questions extends AppCompatActivity {
 
         getDataFromDb();
 
-
+        ques.setText(question_chk.get(0));
+        remarks.setText(remarks_chk.get(0));
+        checkYesOrNo(0);
 
         Button next = (Button) findViewById(R.id.next);
         Button previous = (Button) findViewById(R.id.previous);
@@ -205,11 +207,6 @@ public class Questions extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
     }
 
     private void getDataFromDb(){
@@ -241,9 +238,7 @@ public class Questions extends AppCompatActivity {
 
         }
 
-        ques.setText(question_chk.get(0));
-        remarks.setText(remarks_chk.get(0));
-        checkYesOrNo(0);
+
 
     }
 
