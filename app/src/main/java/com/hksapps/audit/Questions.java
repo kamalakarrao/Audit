@@ -18,11 +18,11 @@ import java.util.List;
 public class Questions extends AppCompatActivity {
 
     static TextView ques;
-   static EditText remarks;
-    RadioButton yesno;
+    static EditText remarks;
+    RadioButton yesno,y,n;
     RadioGroup grp;
     DatabaseHandler db;
-     static int j=1;
+    static int j=1;
     String table_name;
 
     ArrayList<String> question_chk,yes_chk,no_chk,remarks_chk;
@@ -34,13 +34,14 @@ public class Questions extends AppCompatActivity {
 
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-       int value = pref.getInt("questions_screen", 0);
+        int value = pref.getInt("questions_screen", 0);
 
-
+        y = (RadioButton) findViewById(R.id.yes);
+        n= (RadioButton) findViewById(R.id.no);
         ques = (TextView) findViewById(R.id.ques);
         remarks = (EditText) findViewById(R.id.remarks);
 
-         db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
 
         switch (value){
             case 1: table_name = Constants.TABLE_WORKAREA;
@@ -141,7 +142,7 @@ public class Questions extends AppCompatActivity {
         db.addChecklists(new CheckList("Is it Working fine?"));
 */
 
-            getDataFromDb();
+        getDataFromDb();
 
 
 
@@ -167,15 +168,17 @@ public class Questions extends AppCompatActivity {
                 }else {
 
                     StoreAnswersInDb(table_name,j+1);
+
+                    getDataFromDb();
                     grp.clearCheck();
 
-                        j++;
-                        ques.setText(question_chk.get(j));
-
+                    j++;
+                    ques.setText(question_chk.get(j));
+                    checkYesOrNo(j);
+                    remarks.setText(remarks_chk.get(j));
 
                 }
 
-                Toast.makeText(Questions.this, String.valueOf(j) , Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -188,8 +191,12 @@ public class Questions extends AppCompatActivity {
                     Toast.makeText(Questions.this, "This is 1st Question" , Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    grp.clearCheck();
+                    getDataFromDb();
                     j--;
                     ques.setText(question_chk.get(j));
+                    checkYesOrNo(j);
+                    remarks.setText(remarks_chk.get(j));
 
                 }
 
@@ -224,16 +231,19 @@ public class Questions extends AppCompatActivity {
 
             String temp = con.getChecklist();
             question_chk.add(temp);
-            yes_chk.add(con.getYes());
-            no_chk.add(con.getNo());
+            yes_chk.add(con.getYes().toString());
+
+            no_chk.add(con.getNo().toString());
+
             String temp1 = con.getRemarks();
-            Toast.makeText(this,temp1, Toast.LENGTH_SHORT).show();
             remarks_chk.add(temp1);
 
         }
 
         ques.setText(question_chk.get(0));
         remarks.setText(remarks_chk.get(0));
+        checkYesOrNo(0);
+
     }
 
 
@@ -253,6 +263,17 @@ public class Questions extends AppCompatActivity {
 
             return yesno.getText().toString();
         }
+
+    }
+
+    private void checkYesOrNo(int i){
+
+        if(yes_chk.get(i).toString().equals("yes")){
+            y.setChecked(true);
+        }else if(no_chk.get(i).toString().equals("no")){
+            n.setChecked(true);
+        }
+
 
     }
 
