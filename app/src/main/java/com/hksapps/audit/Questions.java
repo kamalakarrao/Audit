@@ -158,6 +158,7 @@ public class Questions extends AppCompatActivity {
 
                     StoreAnswersInDb(table_name,j+1);
 
+        getDataFromDb();
 
 
                     Log.d("Value", String.valueOf(j));
@@ -272,6 +273,9 @@ public class Questions extends AppCompatActivity {
             y.setChecked(true);
         }else if(no_chk.get(i).toString().equals("no")){
             n.setChecked(true);
+        }else {
+            y.setChecked(false);
+            n.setChecked(false);
         }
 
 
