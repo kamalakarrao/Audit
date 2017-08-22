@@ -99,9 +99,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(Constants.KEY_CHECKLIST, checklist.getChecklist());
-        values.put(Constants.KEY_YES, "");
-        values.put(Constants.KEY_NO, "");
-        values.put(Constants.KEY_REMARKS, "");
+        values.put(Constants.KEY_YES, " ");
+        values.put(Constants.KEY_NO, " ");
+        values.put(Constants.KEY_REMARKS, " ");
 
 
         // Inserting Row
