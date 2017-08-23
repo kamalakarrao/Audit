@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,7 @@ public class ReviewScreen extends AppCompatActivity {
     private ViewGroup mLinearLayout;
     private DatabaseHandler db;
     private ArrayList<String> question_chk,yes_chk,no_chk,remarks_chk;
-
+    private String table_name;
 
 
     @Override
@@ -31,7 +30,7 @@ public class ReviewScreen extends AppCompatActivity {
         db = new DatabaseHandler(this);
 
         Intent intent = getIntent();
-        String table_name = intent.getStringExtra("table_name");
+         table_name = intent.getStringExtra("table_name");
 
         getAnswersFromDb(table_name);
 
@@ -94,7 +93,14 @@ private void getAnswersFromDb(String t_name) {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ReviewScreen.this, String.valueOf(i), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(ReviewScreen.this,Questions.class); // Your list's Intent
+                i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                //Sending Value 20 to Questions screen
+                i.putExtra("value",20);
+                i.putExtra("question_number",i);
+                i.putExtra("tab_name",table_name);
+                // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+                startActivity(i);
             }
         });
 

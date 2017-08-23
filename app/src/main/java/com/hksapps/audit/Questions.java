@@ -24,7 +24,8 @@ public class Questions extends AppCompatActivity {
     RadioGroup grp;
     DatabaseHandler db;
     static int j=1;
-    String table_name;
+    private String table_name,tab_name;
+    private int question_number;
 
     ArrayList<String> question_chk,yes_chk,no_chk,remarks_chk;
 
@@ -43,6 +44,14 @@ public class Questions extends AppCompatActivity {
         remarks = (EditText) findViewById(R.id.remarks);
 
         db = new DatabaseHandler(this);
+//Editing Questions which are from Review Screen
+        Intent intent = getIntent();
+        tab_name = intent.getStringExtra("tab_name");
+        int val = intent.getIntExtra("value",000);
+         question_number = intent.getIntExtra("question_number",000);
+        if(val==20){
+            value = 20;
+        }
 
         switch (value){
             case 1: table_name = Constants.TABLE_WORKAREA;
@@ -120,6 +129,9 @@ public class Questions extends AppCompatActivity {
                     Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
+            case 20: table_name = tab_name;
+                j = question_number;
 
 
 
