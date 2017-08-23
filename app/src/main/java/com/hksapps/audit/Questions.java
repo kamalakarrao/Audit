@@ -1,5 +1,6 @@
 package com.hksapps.audit;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -160,12 +161,16 @@ public class Questions extends AppCompatActivity {
 
                     StoreAnswersInDb(table_name,j+1);
 
-        getDataFromDb();
+                    getDataFromDb();
+                    Toast.makeText(Questions.this, "All Questions are done!" , Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent(Questions.this,ReviewScreen.class);
+                    i.putExtra("table_name",table_name);
+                    startActivity(i);
 
 
                     Log.d("Value", String.valueOf(j));
 
-                    Toast.makeText(Questions.this, "All Questions are done!" , Toast.LENGTH_SHORT).show();
 
 
                 }else {
