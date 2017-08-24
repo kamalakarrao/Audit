@@ -45,6 +45,7 @@ public class ReviewScreen extends AppCompatActivity {
 
 
 
+
         db = new DatabaseHandler(this);
 
         Intent intent = getIntent();
@@ -59,19 +60,10 @@ public class ReviewScreen extends AppCompatActivity {
             addLayout(question_chk.get(i).toString(),(yes_chk.get(i).toString()+no_chk.get(i).toString()).trim(),remarks_chk.get(i).toString(),i);
 
 
-
         }
 
 
 
-        exptable = (Button) findViewById(R.id.exp_table);
-        exptable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                                ExportingOneTable(table_name);
-            }
-        });
 
 
 
@@ -117,9 +109,27 @@ private void getAnswersFromDb(String t_name) {
         Button edit = (Button) layout2.findViewById(R.id.edit);
 
 
+        exptable = (Button) layout2.findViewById(R.id.exp_table);
+        exptable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ExportingOneTable(table_name);
+            }
+        });
+
+
+        if(j+1==question_chk.size()) {
+            exptable.setVisibility(View.VISIBLE);
+        }else {
+            exptable.setVisibility(View.GONE);
+
+        }
+
+
         question.setText(textViewText);
         answer.setText(textview_answer);
         review_remark.setText(textview_remark);
+
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
