@@ -30,6 +30,16 @@ public class Questions extends AppCompatActivity {
     ArrayList<String> question_chk,yes_chk,no_chk,remarks_chk;
 
     @Override
+    public void onBackPressed() {
+        StoreAnswersInDb(table_name,j+1);
+        Intent i = new Intent(Questions.this,ReviewScreen.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.putExtra("table_name",table_name);
+        startActivity(i);
+        
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
@@ -132,7 +142,11 @@ public class Questions extends AppCompatActivity {
 
             case 20: table_name = tab_name;
                 j = question_number;
-
+                getDataFromDb();
+                ques.setText(question_chk.get(j));
+                remarks.setText(remarks_chk.get(j));
+                checkYesOrNo(j);
+                break;
 
 
         }
@@ -157,12 +171,16 @@ public class Questions extends AppCompatActivity {
 
         getDataFromDb();
 
-        ques.setText(question_chk.get(0));
-        remarks.setText(remarks_chk.get(0));
-        checkYesOrNo(0);
+        if(value!=20) {
+            ques.setText(question_chk.get(0));
+            remarks.setText(remarks_chk.get(0));
+            checkYesOrNo(0);
+        }
+
 
         Button next = (Button) findViewById(R.id.next);
         Button previous = (Button) findViewById(R.id.previous);
+        Button review_questions = (Button) findViewById(R.id.review_questions);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,6 +195,7 @@ public class Questions extends AppCompatActivity {
                     Toast.makeText(Questions.this, "All Questions are done!" , Toast.LENGTH_SHORT).show();
 
                     Intent i = new Intent(Questions.this,ReviewScreen.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     i.putExtra("table_name",table_name);
                     startActivity(i);
 
@@ -219,6 +238,23 @@ public class Questions extends AppCompatActivity {
                     remarks.setText(remarks_chk.get(j));
 
                 }
+
+
+            }
+        });
+
+
+
+        review_questions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                StoreAnswersInDb(table_name,j+1);
+
+                Intent i = new Intent(Questions.this,ReviewScreen.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("table_name",table_name);
+                startActivity(i);
 
 
             }
