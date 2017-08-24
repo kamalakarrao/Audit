@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/review_questions"
         android:text="Review All Questions"
-        android:gravity="bottom"/>
+      />
 
 
 </LinearLayout>
