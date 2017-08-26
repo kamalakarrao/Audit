@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        tools:context="com.hksapps.audit.MainActivity">
-
-
-        <TextView
-            android:id="@+id/workarea"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="cursive"
-            android:text="Work Area"
-            android:textSize="24dp"
-            android:textStyle="bold|italic"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:id="@+id/serverroom"
-
-            android:text="Server Room"
-            android:textSize="24dp"
-            android:fontFamily="cursive"
-            android:textStyle="bold|italic"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/electricalroom"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-
-
-            android:layout_weight="1"
-            android:fontFamily="cursive"
-            android:gravity="center"
-            android:text="Electrical Room"
-
-            android:textSize="24dp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Security Room"
-            android:id="@+id/securityroom"
-            android:textSize="24dp"
-            android:fontFamily="cursive"
-            android:textStyle="bold|italic"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="UPS Room"
-            android:id="@+id/upsroom"
-            android:textSize="24dp"
-            android:fontFamily="cursive"
-            android:textStyle="bold|italic"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Common Area"
-            android:id="@+id/commonarea"
-            android:textSize="24dp"
-            android:fontFamily="cursive"
-            android:textStyle="bold|italic"
-            android:gravity="center"/>
-
-
-<Button
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:id="@+id/export"
-    android:text="EXPORT"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hksapps.audit.MainActivity">
 
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/workarea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Work Area"
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/serverroom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Server Room"
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/electricalroom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+
+        android:layout_weight="1"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Electrical Room"
+
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/securityroom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Security Room"
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/upsroom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="UPS Room"
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/commonarea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Common Area"
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
+
+    <Button
+        android:id="@+id/export"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="EXPORT" />
+
+</LinearLayout>
 
 
 

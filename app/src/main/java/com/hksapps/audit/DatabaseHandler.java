@@ -19,13 +19,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     Context ctx;
+
     public DatabaseHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-         ctx = context;
+        ctx = context;
 
     }
 
@@ -33,21 +34,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-       CreateTable(db,Constants.TABLE_WORKAREA);
-       CreateTable(db,Constants.TABLE_SERVERROOM);
-       CreateTable(db,Constants.TABLE_ELECTRICALROOM);
-       CreateTable(db,Constants.TABLE_SECURITYROOM);
-       CreateTable(db,Constants.TABLE_UPSROOM);
-       CreateTable(db,Constants.TABLE_COMMONAREA);
-
-
-
-
+        CreateTable(db, Constants.TABLE_WORKAREA);
+        CreateTable(db, Constants.TABLE_SERVERROOM);
+        CreateTable(db, Constants.TABLE_ELECTRICALROOM);
+        CreateTable(db, Constants.TABLE_SECURITYROOM);
+        CreateTable(db, Constants.TABLE_UPSROOM);
+        CreateTable(db, Constants.TABLE_COMMONAREA);
 
 
     }
 
-    private void CreateTable(SQLiteDatabase db,String table_name){
+    private void CreateTable(SQLiteDatabase db, String table_name) {
 
         String CREATE_WORKAREA_TABLE = "CREATE TABLE " + table_name + "("
                 + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_CHECKLIST + " TEXT,"
@@ -57,7 +54,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    private void DropTable(SQLiteDatabase db,String table_name){
+    private void DropTable(SQLiteDatabase db, String table_name) {
 
         db.execSQL("DROP TABLE IF EXISTS " + table_name);
 
@@ -67,12 +64,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
         // Drop older table if existed
-     DropTable(db,Constants.TABLE_WORKAREA);
-     DropTable(db,Constants.TABLE_SERVERROOM);
-     DropTable(db,Constants.TABLE_ELECTRICALROOM);
-     DropTable(db,Constants.TABLE_SECURITYROOM);
-     DropTable(db,Constants.TABLE_UPSROOM);
-     DropTable(db,Constants.TABLE_COMMONAREA);
+        DropTable(db, Constants.TABLE_WORKAREA);
+        DropTable(db, Constants.TABLE_SERVERROOM);
+        DropTable(db, Constants.TABLE_ELECTRICALROOM);
+        DropTable(db, Constants.TABLE_SECURITYROOM);
+        DropTable(db, Constants.TABLE_UPSROOM);
+        DropTable(db, Constants.TABLE_COMMONAREA);
 
 
         // Create tables again
@@ -81,20 +78,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public boolean IsTableEmpty(String table_name){
+    public boolean IsTableEmpty(String table_name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String count = "SELECT count(*) FROM " + table_name;;
+        String count = "SELECT count(*) FROM " + table_name;
+        ;
         Cursor mcursor = db.rawQuery(count, null);
         mcursor.moveToFirst();
         int icount = mcursor.getInt(0);
-        if(icount>0){
-          return false;
-        }else
+        if (icount > 0) {
+            return false;
+        } else
             return true;
     }
 
 
-    public void addChecklists(CheckList checklist,String table_name) {
+    public void addChecklists(CheckList checklist, String table_name) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -109,11 +107,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
 
 
-
     }
 
 
-    public void addAnswers(CheckList checklist,String table_name,int id) {
+    public void addAnswers(CheckList checklist, String table_name, int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -123,17 +120,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
         // Inserting Row
-        db.update(table_name,values, "id="+id , null);
+        db.update(table_name, values, "id=" + id, null);
         db.close(); // Closing database connection
 
 
-
     }
-
-
-
-
-
 
 
     // Getting All Contacts

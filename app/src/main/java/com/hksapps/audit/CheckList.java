@@ -9,11 +9,11 @@ public class CheckList {
     int id;
     String checklist, yes, no, remarks;
 
-    public CheckList(){
+    public CheckList() {
 
     }
 
-    public CheckList(int id,String checklist,String yes ,String no , String remarks){
+    public CheckList(int id, String checklist, String yes, String no, String remarks) {
 
         this.id = id;
         this.checklist = checklist;
@@ -22,14 +22,14 @@ public class CheckList {
         this.remarks = remarks;
     }
 
-    public CheckList(String checklist){
+    public CheckList(String checklist) {
 
 
         this.checklist = checklist;
 
     }
 
-    public CheckList(String yes,String no,String remarks){
+    public CheckList(String yes, String no, String remarks) {
 
 
         this.yes = yes;
@@ -39,53 +39,52 @@ public class CheckList {
     }
 
     // getting ID
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
     // setting id
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
 
-    public String getChecklist(){
+    public String getChecklist() {
         return this.checklist;
     }
 
 
-    public void setChecklist(String Checklist){
+    public void setChecklist(String Checklist) {
         this.checklist = Checklist;
     }
 
 
-
-    public String getYes(){
+    public String getYes() {
         return this.yes;
     }
 
 
-    public void setYes(String Yes){
+    public void setYes(String Yes) {
         this.yes = Yes;
     }
 
 
-    public String getNo(){
+    public String getNo() {
         return this.no;
     }
 
 
-    public void setNo(String no){
+    public void setNo(String no) {
         this.no = no;
     }
 
 
-    public String getRemarks(){
+    public String getRemarks() {
         return this.remarks;
     }
 
 
-    public void setRemarks(String remarks){
+    public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
 }

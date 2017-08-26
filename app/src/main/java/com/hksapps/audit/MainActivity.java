@@ -39,15 +39,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putInt("questions_screen",1);
+                editor.putInt("questions_screen", 1);
                 editor.commit();
 
-Intent i = new Intent(MainActivity.this,Questions.class);
-                    startActivity(i);
+                Intent i = new Intent(MainActivity.this, Questions.class);
+                startActivity(i);
 
             }
         });
-
 
 
         ServerRoom.setOnClickListener(new View.OnClickListener() {
@@ -56,16 +55,14 @@ Intent i = new Intent(MainActivity.this,Questions.class);
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putInt("questions_screen",2);
+                editor.putInt("questions_screen", 2);
                 editor.commit();
 
-                Intent i = new Intent(MainActivity.this,Questions.class);
+                Intent i = new Intent(MainActivity.this, Questions.class);
                 startActivity(i);
 
             }
         });
-
-
 
 
         ElectricalRoom.setOnClickListener(new View.OnClickListener() {
@@ -74,10 +71,10 @@ Intent i = new Intent(MainActivity.this,Questions.class);
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putInt("questions_screen",3);
+                editor.putInt("questions_screen", 3);
                 editor.commit();
 
-                Intent i = new Intent(MainActivity.this,Questions.class);
+                Intent i = new Intent(MainActivity.this, Questions.class);
                 startActivity(i);
 
             }
@@ -90,10 +87,10 @@ Intent i = new Intent(MainActivity.this,Questions.class);
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putInt("questions_screen",4);
+                editor.putInt("questions_screen", 4);
                 editor.commit();
 
-                Intent i = new Intent(MainActivity.this,Questions.class);
+                Intent i = new Intent(MainActivity.this, Questions.class);
                 startActivity(i);
 
             }
@@ -106,10 +103,10 @@ Intent i = new Intent(MainActivity.this,Questions.class);
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putInt("questions_screen",5);
+                editor.putInt("questions_screen", 5);
                 editor.commit();
 
-                Intent i = new Intent(MainActivity.this,Questions.class);
+                Intent i = new Intent(MainActivity.this, Questions.class);
                 startActivity(i);
 
             }
@@ -122,16 +119,14 @@ Intent i = new Intent(MainActivity.this,Questions.class);
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                 SharedPreferences.Editor editor = pref.edit();
-                editor.putInt("questions_screen",6);
+                editor.putInt("questions_screen", 6);
                 editor.commit();
 
-                Intent i = new Intent(MainActivity.this,Questions.class);
+                Intent i = new Intent(MainActivity.this, Questions.class);
                 startActivity(i);
 
             }
         });
-
-
 
 
         exp.setOnClickListener(new View.OnClickListener() {
@@ -167,16 +162,10 @@ Intent i = new Intent(MainActivity.this,Questions.class);
         });
 
 
-
-
-
-
-
     }
 
 
-
-    public  boolean isStoragePermissionGranted() {
+    public boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -186,8 +175,7 @@ Intent i = new Intent(MainActivity.this,Questions.class);
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 return false;
             }
-        }
-        else { //permission is automatically granted on sdk<23 upon installation
+        } else { //permission is automatically granted on sdk<23 upon installation
             return true;
         }
     }
