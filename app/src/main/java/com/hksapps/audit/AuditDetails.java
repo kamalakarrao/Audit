@@ -36,7 +36,7 @@ public class AuditDetails extends AppCompatActivity {
 
                     SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("database_name", "Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase());
+                    editor.putString("database_name", ("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
                     editor.commit();
 
                     db.addAuditDetails(new CheckList("Date: " + date.getText().toString()));

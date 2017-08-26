@@ -178,9 +178,11 @@ public class Questions extends AppCompatActivity {
         getDataFromDb();
 
         if (value != 20) {
-            ques.setText(question_chk.get(0));
-            remarks.setText(remarks_chk.get(0));
-            checkYesOrNo(0);
+            if (question_chk.size() > 0) {
+                ques.setText(question_chk.get(0));
+                remarks.setText(remarks_chk.get(0));
+                checkYesOrNo(0);
+            }
         }
 
 
