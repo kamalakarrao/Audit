@@ -164,8 +164,8 @@ public class ReviewScreen extends AppCompatActivity {
         if (isStoragePermissionGranted()) {
 
 
-            SQLiteToExcel sqliteToExcel = new SQLiteToExcel(ReviewScreen.this, "audit");
-            sqliteToExcel.exportSingleTable(t_name, "Audit_" + t_name + ".xlsx", new SQLiteToExcel.ExportListener() {
+            SQLiteToExcel sqliteToExcel = new SQLiteToExcel(ReviewScreen.this, MainActivity.databaseName);
+            sqliteToExcel.exportSingleTable(t_name, t_name + "_" + MainActivity.databaseName + ".xlsx", new SQLiteToExcel.ExportListener() {
                 @Override
                 public void onStart() {
                     Toast.makeText(ReviewScreen.this, "Started Exporting", Toast.LENGTH_SHORT).show();

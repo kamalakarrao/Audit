@@ -17,11 +17,14 @@ import com.ajts.androidmads.library.SQLiteToExcel;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    public static String databaseName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        databaseName = pref.getString("database_name", "None");
 
 
         TextView WorkArea = (TextView) findViewById(R.id.workarea);
@@ -136,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
                 if (isStoragePermissionGranted()) {
 
 
-                    SQLiteToExcel sqliteToExcel = new SQLiteToExcel(MainActivity.this, "audit");
-                    sqliteToExcel.exportAllTables("Auditing_Test_Excel.xlsx", new SQLiteToExcel.ExportListener() {
+                    SQLiteToExcel sqliteToExcel = new SQLiteToExcel(MainActivity.this, databaseName);
+                    sqliteToExcel.exportAllTables(databaseName + "_Excel.xlsx", new SQLiteToExcel.ExportListener() {
                         @Override
                         public void onStart() {
                             Toast.makeText(MainActivity.this, "Started Exporting", Toast.LENGTH_SHORT).show();

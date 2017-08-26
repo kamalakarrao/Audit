@@ -41,7 +41,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         CreateTable(db, Constants.TABLE_UPSROOM);
         CreateTable(db, Constants.TABLE_COMMONAREA);
 
-
+        String CREATE_WORKAREA_TABLE = "CREATE TABLE " + "audit_details" + "("
+                + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_CHECKLIST + " TEXT" + ")";
+        db.execSQL(CREATE_WORKAREA_TABLE);
     }
 
     private void CreateTable(SQLiteDatabase db, String table_name) {
@@ -71,6 +73,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         DropTable(db, Constants.TABLE_UPSROOM);
         DropTable(db, Constants.TABLE_COMMONAREA);
 
+        db.execSQL("DROP TABLE IF EXISTS " + "audit_details");
 
         // Create tables again
         onCreate(db);
@@ -81,7 +84,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public boolean IsTableEmpty(String table_name) {
         SQLiteDatabase db = this.getWritableDatabase();
         String count = "SELECT count(*) FROM " + table_name;
-        ;
+
         Cursor mcursor = db.rawQuery(count, null);
         mcursor.moveToFirst();
         int icount = mcursor.getInt(0);
@@ -90,6 +93,46 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         } else
             return true;
     }
+
+
+    public void addAuditDetails(CheckList checklist) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Constants.KEY_CHECKLIST, checklist.getChecklist());
+        db.insert("audit_details", null, values);
+        db.close();
+    }
+
+
+    public List<CheckList> getAuditDetails() {
+        List<CheckList> chklist = new ArrayList<CheckList>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + "audit_details";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                CheckList checkList = new CheckList();
+                checkList.setId(Integer.parseInt(cursor.getString(0)));
+                checkList.setChecklist(cursor.getString(1));
+
+
+                // Adding contact to list
+                chklist.add(checkList);
+            } while (cursor.moveToNext());
+        }
+
+
+        // return contact list
+        return chklist;
+    }
+
+
 
 
     public void addChecklists(CheckList checklist, String table_name) {

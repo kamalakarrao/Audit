@@ -47,6 +47,7 @@ public class Questions extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         int value = pref.getInt("questions_screen", 0);
 
+
         y = (RadioButton) findViewById(R.id.yes);
         n = (RadioButton) findViewById(R.id.no);
         ques = (TextView) findViewById(R.id.ques);

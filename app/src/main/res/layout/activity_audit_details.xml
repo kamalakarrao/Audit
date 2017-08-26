@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:hint="Date"
+        android:hint="Date: Jan and Feb 2017"
         android:textSize="24sp" />
 
     <EditText
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:hint="Site"
+        android:hint="Site:Hyderabad"
         android:textSize="24sp" />
 
     <EditText
@@ -37,5 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:hint="SPOC"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done"
         android:textSize="24sp" />
 </LinearLayout>

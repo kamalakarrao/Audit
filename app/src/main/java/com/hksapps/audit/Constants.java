@@ -1,12 +1,15 @@
 package com.hksapps.audit;
 
+import android.app.Activity;
+
 /**
  * Created by Administrator on 7/31/2017.
  */
 
-public class Constants {
+public class Constants extends Activity {
 
-    public static final String DATABASE_NAME = "audit";
+
+    public static final String DATABASE_NAME = MainActivity.databaseName;
 
     public static final String TABLE_WORKAREA = "workarea";
     public static final String TABLE_SERVERROOM = "serverroom";
