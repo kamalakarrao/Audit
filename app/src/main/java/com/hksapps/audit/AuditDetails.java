@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class AuditDetails extends AppCompatActivity {
 
     private EditText date, name_of_auditor, site, spoc;
@@ -36,8 +39,18 @@ public class AuditDetails extends AppCompatActivity {
 
                     SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("database_name", ("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
+
+                    Set<String> set1 = new HashSet<String>();
+                    set1 = pref.getStringSet("no_of_databases", new HashSet<String>());
+                    set1.add(("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
+
+
+                    editor.putStringSet("no_of_databases", set1);
                     editor.commit();
+
+                  /*  editor.putString("no_of_databases","Audit");
+                    editor.putString("database_name", ("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
+                    editor.commit();*/
 
                     db.addAuditDetails(new CheckList("Date: " + date.getText().toString()));
                     db.addAuditDetails(new CheckList("Name of Auditor: " + name_of_auditor.getText().toString()));
