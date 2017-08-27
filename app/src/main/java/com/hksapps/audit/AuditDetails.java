@@ -1,5 +1,6 @@
 package com.hksapps.audit;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class AuditDetails extends AppCompatActivity {
@@ -15,6 +18,7 @@ public class AuditDetails extends AppCompatActivity {
     private EditText date, name_of_auditor, site, spoc;
     private Button done;
     private DatabaseHandler db;
+    private ArrayList<String> no_of_dbs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +46,34 @@ public class AuditDetails extends AppCompatActivity {
 
                     Set<String> set1 = new HashSet<String>();
                     set1 = pref.getStringSet("no_of_databases", new HashSet<String>());
-                    set1.add(("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
+                    no_of_dbs = new ArrayList<>();
+                    //   set1.add(("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
+                    final Iterator it = set1.iterator();
+                    while (it.hasNext()) {
 
+                        no_of_dbs.add(it.next().toString());
+                    }
 
-                    editor.putStringSet("no_of_databases", set1);
+                    no_of_dbs.add(("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
+
+                    Set<String> set = new HashSet<String>();
+                    set.addAll(no_of_dbs);
+
+                    editor.putStringSet("no_of_databases", set);
                     editor.commit();
 
-                  /*  editor.putString("no_of_databases","Audit");
+
                     editor.putString("database_name", ("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
-                    editor.commit();*/
+                    editor.commit();
 
                     db.addAuditDetails(new CheckList("Date: " + date.getText().toString()));
                     db.addAuditDetails(new CheckList("Name of Auditor: " + name_of_auditor.getText().toString()));
                     db.addAuditDetails(new CheckList("Site: " + site.getText().toString()));
                     db.addAuditDetails(new CheckList("SPOC: " + spoc.getText().toString()));
 
-                    finish();
+                    Intent k = new Intent(AuditDetails.this, FirstScreen.class);
+                    k.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(k);
                 }
 
             }

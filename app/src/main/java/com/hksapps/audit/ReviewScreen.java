@@ -160,6 +160,7 @@ public class ReviewScreen extends AppCompatActivity {
 
     public void ExportingOneTable(String t_name) {
 
+        Toast.makeText(this, MainActivity.databaseName, Toast.LENGTH_SHORT).show();
 
         if (isStoragePermissionGranted()) {
 
