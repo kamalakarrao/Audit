@@ -1,5 +1,6 @@
 package com.hksapps.audit;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,11 +20,15 @@ public class AuditDetails extends AppCompatActivity {
     private Button done;
     private DatabaseHandler db;
     private ArrayList<String> no_of_dbs;
+    public static String audit_db_name;
+    private Context  context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audit_details);
+
+        context=this;
 
         date = (EditText) findViewById(R.id.date);
         name_of_auditor = (EditText) findViewById(R.id.nameofauditor);
@@ -32,7 +37,7 @@ public class AuditDetails extends AppCompatActivity {
 
         done = (Button) findViewById(R.id.done);
 
-        db = new DatabaseHandler(this);
+
 
 
         done.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +70,10 @@ public class AuditDetails extends AppCompatActivity {
 
                     editor.putString("database_name", ("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim());
                     editor.commit();
+
+                    audit_db_name = ("Audit_" + date.getText().toString().toLowerCase() + "_" + site.getText().toString().toLowerCase()).trim();
+
+                    db = new DatabaseHandler(context,audit_db_name);
 
                     db.addAuditDetails(new CheckList("Date: " + date.getText().toString()));
                     db.addAuditDetails(new CheckList("Name of Auditor: " + name_of_auditor.getText().toString()));

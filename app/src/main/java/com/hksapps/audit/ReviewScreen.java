@@ -2,6 +2,7 @@ package com.hksapps.audit;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class ReviewScreen extends AppCompatActivity {
     private Button exptable;
     private DatabaseHandler db;
     private ArrayList<String> question_chk, yes_chk, no_chk, remarks_chk;
-    private String table_name;
+    private String table_name,databaseName;
 
 
     @Override
@@ -43,8 +44,12 @@ public class ReviewScreen extends AppCompatActivity {
         setContentView(R.layout.activity_review_screen);
         mLinearLayout = (ViewGroup) findViewById(R.id.l_layout);
 
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
 
-        db = new DatabaseHandler(this);
+        databaseName = pref.getString("database_name", "None");
+
+
+        db = new DatabaseHandler(this,databaseName);
 
         Intent intent = getIntent();
         table_name = intent.getStringExtra("table_name");
@@ -165,8 +170,8 @@ public class ReviewScreen extends AppCompatActivity {
         if (isStoragePermissionGranted()) {
 
 
-            SQLiteToExcel sqliteToExcel = new SQLiteToExcel(ReviewScreen.this, MainActivity.databaseName);
-            sqliteToExcel.exportSingleTable(t_name, t_name + "_" + MainActivity.databaseName + ".xlsx", new SQLiteToExcel.ExportListener() {
+            SQLiteToExcel sqliteToExcel = new SQLiteToExcel(ReviewScreen.this, databaseName);
+            sqliteToExcel.exportSingleTable(t_name, t_name + "_" + databaseName + ".xlsx", new SQLiteToExcel.ExportListener() {
                 @Override
                 public void onStart() {
                     Toast.makeText(ReviewScreen.this, "Started Exporting", Toast.LENGTH_SHORT).show();

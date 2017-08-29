@@ -2,6 +2,8 @@ package com.hksapps.audit;
 
 import android.app.Activity;
 
+import static com.hksapps.audit.MainActivity.databaseName;
+
 /**
  * Created by Administrator on 7/31/2017.
  */
@@ -9,7 +11,10 @@ import android.app.Activity;
 public class Constants extends Activity {
 
 
-    public static final String DATABASE_NAME = MainActivity.databaseName;
+
+
+
+    public static final String DATABASE_NAME = databaseName;
 
     public static final String TABLE_WORKAREA = "workarea";
     public static final String TABLE_SERVERROOM = "serverroom";

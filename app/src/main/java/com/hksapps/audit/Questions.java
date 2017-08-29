@@ -25,7 +25,7 @@ public class Questions extends AppCompatActivity {
     RadioGroup grp;
     DatabaseHandler db;
     ArrayList<String> question_chk, yes_chk, no_chk, remarks_chk;
-    private String table_name, tab_name;
+    private String table_name, tab_name , databaseName;
     private int question_number;
 
     @Override
@@ -44,16 +44,19 @@ public class Questions extends AppCompatActivity {
         setContentView(R.layout.activity_questions);
 
 
+
+
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         int value = pref.getInt("questions_screen", 0);
 
+        databaseName = pref.getString("database_name", "None");
 
         y = (RadioButton) findViewById(R.id.yes);
         n = (RadioButton) findViewById(R.id.no);
         ques = (TextView) findViewById(R.id.ques);
         remarks = (EditText) findViewById(R.id.remarks);
 
-        db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this,databaseName);
 //Editing Questions which are from Review Screen
         Intent intent = getIntent();
         tab_name = intent.getStringExtra("tab_name");

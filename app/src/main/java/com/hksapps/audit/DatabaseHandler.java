@@ -30,6 +30,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public DatabaseHandler(Context context,String db_name) {
+        super(context, db_name, null, DATABASE_VERSION);
+
+    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
