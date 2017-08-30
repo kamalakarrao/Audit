@@ -72,11 +72,30 @@ public class Questions extends AppCompatActivity {
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
 
-                    db.addChecklists(new CheckList("Is work area Okay?"), table_name);
-                    db.addChecklists(new CheckList("Is workspace Secured?"), table_name);
-                    db.addChecklists(new CheckList("Is work okay?"), table_name);
-                    db.addChecklists(new CheckList("Is work Fast?"), table_name);
-                    db.addChecklists(new CheckList("Is work fine?"), table_name);
+                    db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
+                    db.addChecklists(new CheckList("Are the fire extinguishers refilled/due date displayed?"), table_name);
+                    db.addChecklists(new CheckList("Is the work area free from debris/ waste?"), table_name);
+                    db.addChecklists(new CheckList("Is the emergency contact information posted in the Work area?"), table_name);
+                    db.addChecklists(new CheckList("Is the sprinkler system functional/inspected/documented (mention date)?"), table_name);
+                    db.addChecklists(new CheckList("Was smoke/heat detectors functional and inspected (mention date)?"), table_name);
+                    db.addChecklists(new CheckList("Are electrical panels clearly marked?"), table_name);
+                    db.addChecklists(new CheckList("Does outlets, switches and boxes have covers?"), table_name);
+                    db.addChecklists(new CheckList("Are other signages displayed in appropriate locations?"), table_name);
+                    db.addChecklists(new CheckList("Is first aid box displayed with instructions?"), table_name);
+                    db.addChecklists(new CheckList("Was emergency lighting system functional effectively during the tests?"), table_name);
+                    db.addChecklists(new CheckList("Are fire exit signs in good conditions?"), table_name);
+                    db.addChecklists(new CheckList("Are exits properly illuminated?"), table_name);
+                    db.addChecklists(new CheckList("Are fire exits and the exit routes clearly marked?"), table_name);
+                    db.addChecklists(new CheckList("Are exits free from obstruction?"), table_name);
+                    db.addChecklists(new CheckList("Were there any issues with PA system during last testing?"), table_name);
+                    db.addChecklists(new CheckList("Was access control doors checked for deactivation in case of emergency?"), table_name);
+                    db.addChecklists(new CheckList("Were alarm system functioning effectively during the tests?"), table_name);
+                    db.addChecklists(new CheckList("Are stairs/ aisleways free from material storage and debris?"), table_name);
+                    db.addChecklists(new CheckList("Is transportation available for injured workers/plan in place?"), table_name);
+                    db.addChecklists(new CheckList("Are warning signs posted for wet floors or spills?"), table_name);
+                    db.addChecklists(new CheckList("Have fire wardens displayed their caps on desks?"), table_name);
+                    db.addChecklists(new CheckList("Are fire escape plan installed on the floors?"), table_name);
+                    db.addChecklists(new CheckList("Are the audio visual alarms present on the floor?"), table_name);
                     Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -85,11 +104,22 @@ public class Questions extends AppCompatActivity {
                 table_name = Constants.TABLE_SERVERROOM;
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
-                    db.addChecklists(new CheckList("Is Server Okay?"), table_name);
-                    db.addChecklists(new CheckList("Is Server Secured?"), table_name);
-                    db.addChecklists(new CheckList("Is Everything okay?"), table_name);
-                    db.addChecklists(new CheckList("Is it Fast?"), table_name);
-                    db.addChecklists(new CheckList("Is it Working fine?"), table_name);
+                    db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
+                    db.addChecklists(new CheckList("Are the fire extinguishers refilled/due date displayed?"), table_name);
+                    db.addChecklists(new CheckList("Is server room free from debris/ waste?"), table_name);
+                    db.addChecklists(new CheckList("Is the emergency contact information posted in the server room?"), table_name);
+                    db.addChecklists(new CheckList("Was FM 200/ Inergen functional and inspected (mention date)?"), table_name);
+                    db.addChecklists(new CheckList("Was smoke/heat detectors functional and inspected (mention date)?"), table_name);
+                    db.addChecklists(new CheckList("Are electrical panels clearly marked?"), table_name);
+                    db.addChecklists(new CheckList("Does outlets, switches and boxes have covers?"), table_name);
+                    db.addChecklists(new CheckList("Is rodent control present in server room?"), table_name);
+                    db.addChecklists(new CheckList("Are other signages displayed in appropriate locations?"), table_name);
+                    db.addChecklists(new CheckList("Is temperature maintained in server room?"), table_name);
+                    db.addChecklists(new CheckList("Is there any storage media found in the room?"), table_name);
+                    db.addChecklists(new CheckList("Is visitors log maintained?"), table_name);
+                    db.addChecklists(new CheckList("Are the temperature and humidity detecting devices functional?"), table_name);
+                    db.addChecklists(new CheckList("Are blower fans clear of debris?"), table_name);
+                    db.addChecklists(new CheckList("Other Findings?"), table_name);
                     Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
