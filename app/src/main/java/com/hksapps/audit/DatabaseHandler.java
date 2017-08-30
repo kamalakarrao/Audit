@@ -203,5 +203,3 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return chklist;
     }
 }
-
-
