@@ -25,7 +25,7 @@ public class Questions extends AppCompatActivity {
     RadioGroup grp;
     DatabaseHandler db;
     ArrayList<String> question_chk, yes_chk, no_chk, remarks_chk;
-    private String table_name, tab_name , databaseName;
+    private String table_name, tab_name , databaseName , hub_tab_name;
     private int question_number;
 
     @Override
@@ -60,10 +60,15 @@ public class Questions extends AppCompatActivity {
 //Editing Questions which are from Review Screen
         Intent intent = getIntent();
         tab_name = intent.getStringExtra("tab_name");
+        hub_tab_name = intent.getStringExtra("hub_tab_name");
         int val = intent.getIntExtra("value", 000);
         question_number = intent.getIntExtra("question_number", 000);
         if (val == 20) {
             value = 20;
+        }
+
+        if(val == 7){
+            value = 7;
         }
 
         switch (value) {
@@ -226,6 +231,29 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Are the audio visual alarms present on the floor?"), table_name);
                     db.addChecklists(new CheckList("Other info?"), table_name);
                     Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+
+
+            case 7:
+                table_name = hub_tab_name;
+                j = 0;
+                if(db.IsTableEmpty(table_name)){
+
+                    db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
+                    db.addChecklists(new CheckList("Are the fire extinguishers refilled/due date displayed?"), table_name);
+                    db.addChecklists(new CheckList("Is Hub Room free from debris/ waste?"), table_name);
+                    db.addChecklists(new CheckList("Is the emergency contact information posted in the Hub Room?"), table_name);
+                    db.addChecklists(new CheckList("Is the sprinkler system functional/inspected/documented (mention date)?"), table_name);
+                    db.addChecklists(new CheckList("Was smoke/heat detectors functional and inspected (mention date)?"), table_name);
+                    db.addChecklists(new CheckList("Are electrical panels clearly marked?"), table_name);
+                    db.addChecklists(new CheckList("Does outlets, switches and boxes have covers?"), table_name);
+                    db.addChecklists(new CheckList("Is rodent control present in Hub Room?"), table_name);
+                    db.addChecklists(new CheckList("Are other signages displayed in appropriate locations?"), table_name);
+                    db.addChecklists(new CheckList("Is there any storage media found in the room?"), table_name);
+                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
+
                 }
                 break;
 
