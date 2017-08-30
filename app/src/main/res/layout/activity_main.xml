@@ -78,6 +78,17 @@
         android:textSize="24dp"
         android:textStyle="bold|italic" />
 
+    <TextView
+        android:id="@+id/hubroom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Hub Room"
+        android:textSize="24dp"
+        android:textStyle="bold|italic" />
+
 
     <Button
         android:id="@+id/export"

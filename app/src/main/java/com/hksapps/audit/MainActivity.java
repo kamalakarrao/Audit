@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         TextView SecurityRoom = (TextView) findViewById(R.id.securityroom);
         TextView UpsRoom = (TextView) findViewById(R.id.upsroom);
         TextView CommonArea = (TextView) findViewById(R.id.commonarea);
+        TextView HubRoom = (TextView) findViewById(R.id.hubroom);
 
         Button exp = (Button) findViewById(R.id.export);
 
@@ -128,6 +129,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, Questions.class);
                 startActivity(i);
 
+            }
+        });
+
+        HubRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this, ODC_Screen.class);
+                startActivity(i);
             }
         });
 

@@ -21,10 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Questions" />
         <activity android:name=".ReviewScreen" />
-        <activity android:name=".AuditDetails"></activity>
+        <activity android:name=".AuditDetails" />
+        <activity android:name=".ODC_Screen"></activity>
     </application>
 
 </manifest>
