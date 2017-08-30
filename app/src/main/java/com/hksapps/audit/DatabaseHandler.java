@@ -45,6 +45,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         CreateTable(db, Constants.TABLE_UPSROOM);
         CreateTable(db, Constants.TABLE_COMMONAREA);
 
+        CreateTable(db, Constants.TABLE_1F_ODC_1);
+        CreateTable(db, Constants.TABLE_1F_ODC_2);
+        CreateTable(db, Constants.TABLE_1F_ODC_3);
+        CreateTable(db, Constants.TABLE_1F_ODC_4);
+        CreateTable(db, Constants.TABLE_1F_ODC_5);
+
+
+        CreateTable(db, Constants.TABLE_2F_ODC_1);
+        CreateTable(db, Constants.TABLE_2F_ODC_2);
+        CreateTable(db, Constants.TABLE_2F_ODC_3);
+        CreateTable(db, Constants.TABLE_2F_ODC_4);
+        CreateTable(db, Constants.TABLE_2F_ODC_5);
+
+        CreateTable(db, Constants.TABLE_3F_ODC_1);
+        CreateTable(db, Constants.TABLE_3F_ODC_2);
+        CreateTable(db, Constants.TABLE_3F_ODC_3);
+        CreateTable(db, Constants.TABLE_3F_ODC_4);
+        CreateTable(db, Constants.TABLE_3F_ODC_5);
+
+
+        CreateTable(db, Constants.TABLE_4F_ODC_1);
+        CreateTable(db, Constants.TABLE_4F_ODC_2);
+        CreateTable(db, Constants.TABLE_4F_ODC_3);
+        CreateTable(db, Constants.TABLE_4F_ODC_4);
+
+
+
+        CreateTable(db, Constants.TABLE_5F_ODC_1);
+        CreateTable(db, Constants.TABLE_5F_ODC_2);
+        CreateTable(db, Constants.TABLE_5F_ODC_3);
+        CreateTable(db, Constants.TABLE_5F_ODC_4);
+
+
         String CREATE_WORKAREA_TABLE = "CREATE TABLE " + "audit_details" + "("
                 + Constants.KEY_ID + " INTEGER PRIMARY KEY," + Constants.KEY_CHECKLIST + " TEXT" + ")";
         db.execSQL(CREATE_WORKAREA_TABLE);
@@ -76,6 +109,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         DropTable(db, Constants.TABLE_SECURITYROOM);
         DropTable(db, Constants.TABLE_UPSROOM);
         DropTable(db, Constants.TABLE_COMMONAREA);
+
+        DropTable(db, Constants.TABLE_1F_ODC_1);
+        DropTable(db, Constants.TABLE_1F_ODC_2);
+        DropTable(db, Constants.TABLE_1F_ODC_3);
+        DropTable(db, Constants.TABLE_1F_ODC_4);
+        DropTable(db, Constants.TABLE_1F_ODC_5);
+
+
+        DropTable(db, Constants.TABLE_2F_ODC_1);
+        DropTable(db, Constants.TABLE_2F_ODC_2);
+        DropTable(db, Constants.TABLE_2F_ODC_3);
+        DropTable(db, Constants.TABLE_2F_ODC_4);
+        DropTable(db, Constants.TABLE_2F_ODC_5);
+
+        DropTable(db, Constants.TABLE_3F_ODC_1);
+        DropTable(db, Constants.TABLE_3F_ODC_2);
+        DropTable(db, Constants.TABLE_3F_ODC_3);
+        DropTable(db, Constants.TABLE_3F_ODC_4);
+        DropTable(db, Constants.TABLE_3F_ODC_5);
+
+
+        DropTable(db, Constants.TABLE_4F_ODC_1);
+        DropTable(db, Constants.TABLE_4F_ODC_2);
+        DropTable(db, Constants.TABLE_4F_ODC_3);
+        DropTable(db, Constants.TABLE_4F_ODC_4);
+
+
+
+        DropTable(db, Constants.TABLE_5F_ODC_1);
+        DropTable(db, Constants.TABLE_5F_ODC_2);
+        DropTable(db, Constants.TABLE_5F_ODC_3);
+        DropTable(db, Constants.TABLE_5F_ODC_4);
+
+
+
 
         db.execSQL("DROP TABLE IF EXISTS " + "audit_details");
 
