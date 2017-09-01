@@ -73,6 +73,7 @@ public class FirstScreen extends AppCompatActivity {
             });
 
             rowTextView.setTextSize(24);
+
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(10, 10, 10, 10);
             rowTextView.setLayoutParams(params);
