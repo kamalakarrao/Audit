@@ -20,6 +20,11 @@
         android:textStyle="bold|italic" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
+
+    <TextView
         android:id="@+id/serverroom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -30,6 +35,12 @@
         android:text="Server Room"
         android:textSize="24dp"
         android:textStyle="bold|italic" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
 
     <TextView
         android:id="@+id/electricalroom"
@@ -46,6 +57,11 @@
         android:textStyle="bold|italic" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
+
+    <TextView
         android:id="@+id/securityroom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,6 +71,11 @@
         android:text="Security Room"
         android:textSize="24dp"
         android:textStyle="bold|italic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
 
     <TextView
         android:id="@+id/upsroom"
@@ -68,6 +89,11 @@
         android:textStyle="bold|italic" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
+
+    <TextView
         android:id="@+id/commonarea"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -77,6 +103,11 @@
         android:text="Common Area"
         android:textSize="24dp"
         android:textStyle="bold|italic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
 
     <TextView
         android:id="@+id/hubroom"
@@ -94,8 +125,12 @@
         android:id="@+id/export"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_gravity="center"
         android:layout_weight="1"
-        android:text="EXPORT" />
+        android:background="@color/colorAccent"
+        android:text="Export"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 </LinearLayout>
 

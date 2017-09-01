@@ -23,8 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         databaseName = pref.getString("database_name", "None");
+
+        setTitle(databaseName);
+
 
 
         TextView WorkArea = (TextView) findViewById(R.id.workarea);

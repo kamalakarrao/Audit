@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.hksapps.audit.Questions">
@@ -13,14 +14,16 @@
         android:id="@+id/ques"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18dp" />
+        android:layout_margin="4dp"
+        android:text="Question"
+        android:textSize="22sp" />
 
 
     <RadioGroup
         android:id="@+id/grp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="6dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -39,29 +42,51 @@
 
     </RadioGroup>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Remarks"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/remarks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:hint="Remarks"
+        android:imeOptions=""
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLines="8"
         android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Previous" />
+            android:layout_marginRight="20dp"
+            android:background="@color/colorAccent"
+            android:text="Previous"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorAccent"
+            android:text="Next"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
@@ -70,7 +95,11 @@
         android:id="@+id/review_questions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Review All Questions" />
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent"
+        android:padding="6dp"
+        android:text="Review All Questions"
+        android:textColor="#FFFFFF" />
 
 
 </LinearLayout>

@@ -53,6 +53,23 @@ public class Questions extends AppCompatActivity {
 
         y = (RadioButton) findViewById(R.id.yes);
         n = (RadioButton) findViewById(R.id.no);
+
+   /*     y.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                 y.setChecked(false);
+                n.setChecked(false);
+                return true;
+            }
+        });
+        n.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                 y.setChecked(false);
+                n.setChecked(false);
+                return true;
+            }
+        });*/
         ques = (TextView) findViewById(R.id.ques);
         remarks = (EditText) findViewById(R.id.remarks);
 

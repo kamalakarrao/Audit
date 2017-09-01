@@ -11,6 +11,7 @@
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="3dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -24,30 +25,41 @@
                 android:id="@+id/question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp" />
+                android:text="Question"
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:text="Answer"
+                android:textAllCaps="true"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:background="@null"
-                android:text="Edit" />
 
             <TextView
                 android:id="@+id/review_remark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:text="Remarks"
                 android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="7dp"
+                android:background="@color/colorAccent"
+                android:text="Edit"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE" />
 
 
         </LinearLayout>
@@ -58,5 +70,8 @@
         android:id="@+id/exp_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Export" />
+        android:layout_margin="4dp"
+        android:background="@color/colorAccent"
+        android:text="Export"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

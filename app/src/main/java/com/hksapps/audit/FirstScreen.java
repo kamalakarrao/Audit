@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -57,7 +56,6 @@ public class FirstScreen extends AppCompatActivity {
             // set some properties of rowTextView or something
             rowTextView.setText(no_of_dbs.get(finalI));
 
-            Toast.makeText(FirstScreen.this, no_of_dbs.get(finalI), Toast.LENGTH_SHORT).show();
 
             rowTextView.setOnClickListener(new View.OnClickListener() {
                 @Override

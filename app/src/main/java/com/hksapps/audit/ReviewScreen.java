@@ -50,6 +50,8 @@ public class ReviewScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_screen);
+
+
         mLinearLayout = (ViewGroup) findViewById(R.id.l_layout);
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
@@ -61,6 +63,8 @@ public class ReviewScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
         table_name = intent.getStringExtra("table_name");
+
+        setTitle(table_name.substring(0, 1).toUpperCase() + table_name.substring(1, table_name.length()).toLowerCase());
 
         getAnswersFromDb(table_name);
 
@@ -134,14 +138,28 @@ public class ReviewScreen extends AppCompatActivity {
 
 
         question.setText(textViewText);
-        answer.setText(textview_answer);
-        review_remark.setText(textview_remark);
+        if (textview_answer.equals(" ") || textview_answer.equals("")) {
+
+            answer.setText("Ans: ");
+        } else {
+            answer.setText(textview_answer);
+        }
+
+
+        if (textview_remark.equals(" ")) {
+
+            review_remark.setText("Remarks: ");
+        } else {
+
+            review_remark.setText(textview_remark);
+
+        }
+
 
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ReviewScreen.this, "Loaded", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(ReviewScreen.this, Questions.class); // Your list's Intent
                 i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 //Sending Value 20 to Questions screen
@@ -173,7 +191,6 @@ public class ReviewScreen extends AppCompatActivity {
 
     public void ExportingOneTable(String t_name) {
 
-        Toast.makeText(this, MainActivity.databaseName, Toast.LENGTH_SHORT).show();
 
         if (isStoragePermissionGranted()) {
 
