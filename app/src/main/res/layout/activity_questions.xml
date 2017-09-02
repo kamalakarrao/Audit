@@ -40,6 +40,13 @@
             android:text="No"
             android:textSize="20sp" />
 
+        <RadioButton
+            android:id="@+id/na"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N/A"
+            android:textSize="20sp" />
+
     </RadioGroup>
 
     <TextView

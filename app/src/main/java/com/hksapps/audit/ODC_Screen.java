@@ -42,7 +42,7 @@ public class ODC_Screen extends AppCompatActivity {
 
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, floors);
+                android.R.layout.simple_spinner_dropdown_item, floors);
 
         spinner.setAdapter(dataAdapter);
 

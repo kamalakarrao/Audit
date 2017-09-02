@@ -21,7 +21,7 @@ public class Questions extends AppCompatActivity {
     static TextView ques;
     static EditText remarks;
     static int j = 1;
-    RadioButton yesno, y, n;
+    RadioButton yesno, y, n, na;
     RadioGroup grp;
     DatabaseHandler db;
     ArrayList<String> question_chk, yes_chk, no_chk, remarks_chk;
@@ -53,6 +53,8 @@ public class Questions extends AppCompatActivity {
 
         y = (RadioButton) findViewById(R.id.yes);
         n = (RadioButton) findViewById(R.id.no);
+        na = (RadioButton) findViewById(R.id.na);
+
 
    /*     y.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -118,7 +120,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Have fire wardens displayed their caps on desks?"), table_name);
                     db.addChecklists(new CheckList("Are fire escape plan installed on the floors?"), table_name);
                     db.addChecklists(new CheckList("Are the audio visual alarms present on the floor?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -142,7 +143,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Are the temperature and humidity detecting devices functional?"), table_name);
                     db.addChecklists(new CheckList("Are blower fans clear of debris?"), table_name);
                     db.addChecklists(new CheckList("Other Findings?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -163,7 +163,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Is first aid box displayed with instructions?"), table_name);
                     db.addChecklists(new CheckList("Was emergency lighting system functional effectively during the tests?"), table_name);
                     db.addChecklists(new CheckList("Is temperature maintained in electrical room?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -187,7 +186,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Is the data maintained for Pregnant women and persons with disabilities?"), table_name);
                     db.addChecklists(new CheckList("Is the log of details of visitors and foreign delegates visiting CG maintained ?"), table_name);
                     db.addChecklists(new CheckList("Retentation of CCTV footage?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -211,7 +209,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Is there leakage found on batteries?"), table_name);
                     db.addChecklists(new CheckList("Is visitors log maintained?"), table_name);
                     db.addChecklists(new CheckList("Are the temperature and humidity detecting divices functional?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -247,7 +244,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Are combustible debries disposed of regularly?"), table_name);
                     db.addChecklists(new CheckList("Are the audio visual alarms present on the floor?"), table_name);
                     db.addChecklists(new CheckList("Other info?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -269,7 +265,6 @@ public class Questions extends AppCompatActivity {
                     db.addChecklists(new CheckList("Is rodent control present in Hub Room?"), table_name);
                     db.addChecklists(new CheckList("Are other signages displayed in appropriate locations?"), table_name);
                     db.addChecklists(new CheckList("Is there any storage media found in the room?"), table_name);
-                    Toast.makeText(this, "Questions Added", Toast.LENGTH_SHORT).show();
 
                 }
                 break;

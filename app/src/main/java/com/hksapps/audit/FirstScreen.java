@@ -49,12 +49,31 @@ public class FirstScreen extends AppCompatActivity {
         }
 
 
+        if (no_of_dbs.size() == 0) {
+
+            TextView EmptyTextView = new TextView(this);
+
+            EmptyTextView.setText("No Checklists");
+            EmptyTextView.setClickable(false);
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(10, 10, 10, 10);
+            EmptyTextView.setTextSize(24);
+            EmptyTextView.setLayoutParams(params);
+            linear.addView(EmptyTextView);
+
+
+        }
+
+
         for (int i = 0; i < no_of_dbs.size(); i++) {
 
             final TextView rowTextView = new TextView(this);
             final int finalI = i;
             // set some properties of rowTextView or something
             rowTextView.setText(no_of_dbs.get(finalI));
+            rowTextView.setClickable(true);
+
 
 
             rowTextView.setOnClickListener(new View.OnClickListener() {
