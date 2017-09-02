@@ -13,11 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Work Area"
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -30,11 +28,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"
 
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Server Room"
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
 
     <TextView
@@ -49,12 +45,10 @@
 
 
         android:layout_weight="1"
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Electrical Room"
 
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -66,11 +60,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Security Room"
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -82,11 +74,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="UPS Room"
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -98,11 +88,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Common Area"
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -114,11 +102,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fontFamily="cursive"
         android:gravity="center"
         android:text="Hub Room"
-        android:textSize="24dp"
-        android:textStyle="bold|italic" />
+        android:textSize="24dp" />
 
 
     <Button
@@ -129,7 +115,7 @@
         android:layout_weight="1"
         android:background="@color/colorAccent"
         android:text="Export"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:textSize="18sp" />
 
 </LinearLayout>

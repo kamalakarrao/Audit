@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginRight="20dp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/button_rounded"
         android:text="Done"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />

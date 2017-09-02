@@ -137,7 +137,7 @@ public class ReviewScreen extends AppCompatActivity {
         }
 
 
-        question.setText(textViewText);
+        question.setText(j + 1 + "." + textViewText);
         if (textview_answer.equals(" ") || textview_answer.equals("")) {
 
             answer.setText("Ans: ");

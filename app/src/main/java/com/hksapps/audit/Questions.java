@@ -273,7 +273,7 @@ public class Questions extends AppCompatActivity {
                 table_name = tab_name;
                 j = question_number;
                 getDataFromDb();
-                ques.setText(question_chk.get(j));
+                ques.setText(j + 1 + "." + question_chk.get(j));
                 remarks.setText(remarks_chk.get(j));
                 checkYesOrNo(j);
                 break;
@@ -303,7 +303,7 @@ public class Questions extends AppCompatActivity {
 
         if (value != 20) {
             if (question_chk.size() > 0) {
-                ques.setText(question_chk.get(0));
+                ques.setText("1." + question_chk.get(0));
                 remarks.setText(remarks_chk.get(0));
                 checkYesOrNo(0);
             }
@@ -343,7 +343,7 @@ public class Questions extends AppCompatActivity {
                     grp.clearCheck();
 
                     j++;
-                    ques.setText(question_chk.get(j));
+                    ques.setText(j + 1 + "." + question_chk.get(j));
                     checkYesOrNo(j);
                     remarks.setText(remarks_chk.get(j));
 
@@ -363,7 +363,7 @@ public class Questions extends AppCompatActivity {
                     grp.clearCheck();
                     getDataFromDb();
                     j--;
-                    ques.setText(question_chk.get(j));
+                    ques.setText(j + 1 + "." + question_chk.get(j));
                     checkYesOrNo(j);
                     remarks.setText(remarks_chk.get(j));
 
