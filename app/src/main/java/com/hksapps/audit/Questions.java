@@ -447,11 +447,14 @@ public class Questions extends AppCompatActivity {
 
         if (yes_chk.get(i).toString().equals("yes")) {
             y.setChecked(true);
+        } else if (yes_chk.get(i).toString().toLowerCase().equals("n/a")) {
+            na.setChecked(true);
         } else if (no_chk.get(i).toString().equals("no")) {
             n.setChecked(true);
         } else {
             y.setChecked(false);
             n.setChecked(false);
+            na.setChecked(false);
         }
 
 
@@ -462,6 +465,9 @@ public class Questions extends AppCompatActivity {
         String y, n;
         if (getRadioButtonChoice().equals("Yes")) {
             y = "yes";
+            n = "";
+        } else if (getRadioButtonChoice().toLowerCase().equals("n/a")) {
+            y = "N/A";
             n = "";
         } else if (getRadioButtonChoice().equals("No")) {
             y = "";
