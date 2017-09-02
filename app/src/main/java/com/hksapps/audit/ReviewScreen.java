@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -195,7 +196,7 @@ public class ReviewScreen extends AppCompatActivity {
         if (isStoragePermissionGranted()) {
 
 
-            SQLiteToExcel sqliteToExcel = new SQLiteToExcel(ReviewScreen.this, databaseName);
+            SQLiteToExcel sqliteToExcel = new SQLiteToExcel(ReviewScreen.this, databaseName, Environment.getExternalStorageDirectory().getAbsolutePath() + "/Audit Checklists/");
             sqliteToExcel.exportSingleTable(t_name, t_name + "_" + databaseName + ".xlsx", new SQLiteToExcel.ExportListener() {
                 @Override
                 public void onStart() {
