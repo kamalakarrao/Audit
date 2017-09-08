@@ -25,7 +25,8 @@
         <activity android:name=".Questions" />
         <activity android:name=".ReviewScreen" />
         <activity android:name=".AuditDetails" />
-        <activity android:name=".ODC_Screen"></activity>
+        <activity android:name=".ODC_Screen" />
+        <activity android:name=".FloorScreen"></activity>
     </application>
 
 </manifest>

@@ -88,7 +88,7 @@ public class FirstScreen extends AppCompatActivity {
                     editor.putString("database_name", no_of_dbs.get(finalI));
                     editor.commit();
 
-                    Intent o = new Intent(FirstScreen.this, MainActivity.class);
+                    Intent o = new Intent(FirstScreen.this, FloorScreen.class);
                     startActivity(o);
 
                 }
