@@ -77,6 +77,18 @@
         android:gravity="center"
         android:text="5th Floor"
         android:textSize="24dp" />
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE" />
+    <Button
+        android:id="@+id/exp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text="Export"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
     </LinearLayout>

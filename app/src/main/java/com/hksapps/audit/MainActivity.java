@@ -18,6 +18,8 @@ import com.ajts.androidmads.library.SQLiteToExcel;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView odc1, odc2, odc3, odc4, odc5;
+
     public static String databaseName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +32,26 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle(databaseName);
 
+        odc1 = (TextView) findViewById(R.id.odc1);
+        odc2 = (TextView) findViewById(R.id.odc2);
+        odc3 = (TextView) findViewById(R.id.odc3);
+        odc4 = (TextView) findViewById(R.id.odc4);
+        odc5 = (TextView) findViewById(R.id.odc5);
 
 
-        TextView WorkArea = (TextView) findViewById(R.id.workarea);
-        TextView ServerRoom = (TextView) findViewById(R.id.serverroom);
+    /*    TextView WorkArea = (TextView) findViewById(R.id.workarea);
+        TextView ServerRoom = (TextView) findViewById(R.id.serverroom);*/
         TextView ElectricalRoom = (TextView) findViewById(R.id.electricalroom);
         TextView SecurityRoom = (TextView) findViewById(R.id.securityroom);
         TextView UpsRoom = (TextView) findViewById(R.id.upsroom);
         TextView CommonArea = (TextView) findViewById(R.id.commonarea);
-        TextView HubRoom = (TextView) findViewById(R.id.hubroom);
+
+//        /*TextView HubRoom = (TextView) findViewById(R.id.hubroom);*/
 
         Button exp = (Button) findViewById(R.id.export);
 
 
-        WorkArea.setOnClickListener(new View.OnClickListener() {
+       /* WorkArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
@@ -73,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+*/
         ElectricalRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        HubRoom.setOnClickListener(new View.OnClickListener() {
+      /*  HubRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -145,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+*/
 
         exp.setOnClickListener(new View.OnClickListener() {
             @Override
