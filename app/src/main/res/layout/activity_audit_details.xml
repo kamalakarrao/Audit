@@ -20,16 +20,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
-            android:text="Date:"
+            android:text="Title:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
-        android:id="@+id/date"
+        android:id="@+id/title"
             android:layout_width="match_parent"
         android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:hint="Jan and Feb 2017"
+            android:hint="Site Security Audit Jan 2017"
             android:textColorHint="#BEBEBE"
         android:textSize="24sp" />
 
