@@ -38,12 +38,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        CreateTable(db, Constants.TABLE_WORKAREA);
-        CreateTable(db, Constants.TABLE_SERVERROOM);
-        CreateTable(db, Constants.TABLE_ELECTRICALROOM);
-        CreateTable(db, Constants.TABLE_SECURITYROOM);
-        CreateTable(db, Constants.TABLE_UPSROOM);
-        CreateTable(db, Constants.TABLE_COMMONAREA);
+        CreateTable(db, Constants.TABLE_WORKAREA_1F);
+        CreateTable(db, Constants.TABLE_DATACENTER_2F);
+        CreateTable(db, Constants.TABLE_ELECTRICALROOM_1F);
+        CreateTable(db, Constants.TABLE_SECURITYROOM_1F);
+        CreateTable(db, Constants.TABLE_UPSROOM_1F);
+        CreateTable(db, Constants.TABLE_COMMONAREA_1F);
 
         CreateTable(db, Constants.TABLE_1F_ODC_1);
         CreateTable(db, Constants.TABLE_1F_ODC_2);
@@ -103,12 +103,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
         // Drop older table if existed
-        DropTable(db, Constants.TABLE_WORKAREA);
-        DropTable(db, Constants.TABLE_SERVERROOM);
-        DropTable(db, Constants.TABLE_ELECTRICALROOM);
-        DropTable(db, Constants.TABLE_SECURITYROOM);
-        DropTable(db, Constants.TABLE_UPSROOM);
-        DropTable(db, Constants.TABLE_COMMONAREA);
+        DropTable(db, Constants.TABLE_WORKAREA_1F);
+        DropTable(db, Constants.TABLE_DATACENTER_2F);
+        DropTable(db, Constants.TABLE_ELECTRICALROOM_1F);
+        DropTable(db, Constants.TABLE_SECURITYROOM_1F);
+        DropTable(db, Constants.TABLE_UPSROOM_1F);
+        DropTable(db, Constants.TABLE_COMMONAREA_1F);
 
         DropTable(db, Constants.TABLE_1F_ODC_1);
         DropTable(db, Constants.TABLE_1F_ODC_2);

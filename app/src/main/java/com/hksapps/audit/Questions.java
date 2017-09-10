@@ -48,6 +48,7 @@ public class Questions extends AppCompatActivity {
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
         int value = pref.getInt("questions_screen", 0);
+        int floor_no = pref.getInt("floor_no", 0);
 
         databaseName = pref.getString("database_name", "None");
 
@@ -92,7 +93,7 @@ public class Questions extends AppCompatActivity {
 
         switch (value) {
             case 1:
-                table_name = Constants.TABLE_WORKAREA;
+                table_name = Constants.TABLE_WORKAREA_1F;
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
 
@@ -124,7 +125,7 @@ public class Questions extends AppCompatActivity {
                 break;
 
             case 2:
-                table_name = Constants.TABLE_SERVERROOM;
+                table_name = Constants.TABLE_DATACENTER_2F;
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
                     db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
@@ -147,7 +148,29 @@ public class Questions extends AppCompatActivity {
                 break;
 
             case 3:
-                table_name = Constants.TABLE_ELECTRICALROOM;
+
+                switch (floor_no) {
+                    case 1:
+                        table_name = Constants.TABLE_ELECTRICALROOM_1F;
+                        break;
+
+                    case 2:
+                        table_name = Constants.TABLE_ELECTRICALROOM_2F;
+                        break;
+
+                    case 3:
+                        table_name = Constants.TABLE_ELECTRICALROOM_3F;
+                        break;
+
+                    case 4:
+                        table_name = Constants.TABLE_ELECTRICALROOM_4F;
+                        break;
+
+                    case 5:
+                        table_name = Constants.TABLE_ELECTRICALROOM_5F;
+                        break;
+                }
+
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
                     db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
@@ -167,7 +190,7 @@ public class Questions extends AppCompatActivity {
                 break;
 
             case 4:
-                table_name = Constants.TABLE_SECURITYROOM;
+                table_name = Constants.TABLE_SECURITYROOM_1F;
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
                     db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
@@ -191,7 +214,7 @@ public class Questions extends AppCompatActivity {
 
 
             case 5:
-                table_name = Constants.TABLE_UPSROOM;
+                table_name = Constants.TABLE_UPSROOM_1F;
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
                     db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);
@@ -214,7 +237,27 @@ public class Questions extends AppCompatActivity {
 
 
             case 6:
-                table_name = Constants.TABLE_COMMONAREA;
+                switch (floor_no) {
+                    case 1:
+                        table_name = Constants.TABLE_COMMONAREA_1F;
+                        break;
+
+                    case 2:
+                        table_name = Constants.TABLE_COMMONAREA_2F;
+                        break;
+
+                    case 3:
+                        table_name = Constants.TABLE_COMMONAREA_3F;
+                        break;
+
+                    case 4:
+                        table_name = Constants.TABLE_COMMONAREA_4F;
+                        break;
+
+                    case 5:
+                        table_name = Constants.TABLE_COMMONAREA_5F;
+                        break;
+                }
                 j = 0;
                 if (db.IsTableEmpty(table_name)) {
                     db.addChecklists(new CheckList("Are the fire extinguishers placed at appropriate locations?"), table_name);

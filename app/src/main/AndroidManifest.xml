@@ -26,7 +26,8 @@
         <activity android:name=".ReviewScreen" />
         <activity android:name=".AuditDetails" />
         <activity android:name=".ODC_Screen" />
-        <activity android:name=".FloorScreen"></activity>
+        <activity android:name=".FloorScreen" />
+        <activity android:name=".OdcWorkHubRoom"></activity>
     </application>
 
 </manifest>
