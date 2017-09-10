@@ -28,6 +28,138 @@ public class OdcWorkHubRoom extends AppCompatActivity {
         hubroombtn = (Button) findViewById(R.id.hubroombtn);
 
 
+        workareabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent iwork = new Intent(OdcWorkHubRoom.this, Questions.class);
+                iwork.putExtra("value", 1);
+
+
+                switch (floor_no) {
+
+                    case 1:
+                        switch (odc_no) {
+
+                            case 1:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_1F_ODC_1);
+                                break;
+                            case 2:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_1F_ODC_2);
+                                break;
+                            case 3:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_1F_ODC_3);
+                                break;
+                            case 4:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_1F_ODC_4);
+                                break;
+                            case 5:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_1F_ODC_5);
+                                break;
+
+
+                        }
+                        break;
+
+                    case 2:
+
+                        switch (odc_no) {
+
+                            case 1:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_2F_ODC_1);
+                                break;
+                            case 2:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_2F_ODC_2);
+                                break;
+                            case 3:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_2F_ODC_3);
+                                break;
+                            case 4:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_2F_ODC_4);
+                                break;
+                            case 5:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_2F_ODC_5);
+                                break;
+
+
+                        }
+                        break;
+
+                    case 3:
+
+                        switch (odc_no) {
+
+                            case 1:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_3F_ODC_1);
+                                break;
+                            case 2:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_3F_ODC_2);
+                                break;
+                            case 3:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_3F_ODC_3);
+                                break;
+                            case 4:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_3F_ODC_4);
+                                break;
+                            case 5:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_3F_ODC_5);
+                                break;
+
+
+                        }
+                        break;
+
+                    case 4:
+
+                        switch (odc_no) {
+
+                            case 1:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_4F_ODC_1);
+                                break;
+                            case 2:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_4F_ODC_2);
+                                break;
+                            case 3:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_4F_ODC_3);
+                                break;
+                            case 4:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_4F_ODC_4);
+                                break;
+
+                        }
+                        break;
+
+                    case 5:
+
+                        switch (odc_no) {
+
+                            case 1:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_5F_ODC_1);
+                                break;
+                            case 2:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_5F_ODC_2);
+                                break;
+                            case 3:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_5F_ODC_3);
+                                break;
+                            case 4:
+                                iwork.putExtra("work_tab_name", Constants.TABLE_WORKAREA_5F_ODC_4);
+                                break;
+
+                        }
+                        break;
+
+
+                }
+
+                startActivity(iwork);
+
+            }
+        });
+
+
+
+
         hubroombtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

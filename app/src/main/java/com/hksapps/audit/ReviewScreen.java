@@ -34,18 +34,21 @@ public class ReviewScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-   /*     if (table_name.contains("floor")) {
-            Intent intent = new Intent(this, ODC_Screen.class);
+        if (table_name.contains("odc")) {
+            Intent intent = new Intent(this, OdcWorkHubRoom.class);
+            intent.putExtra("floor_no", floor_no);
+
+            intent.putExtra("odc_no", Integer.parseInt(table_name.substring(table_name.length() - 1), table_name.length()));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
-        } else {*/
+        } else {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("floor_no", floor_no);
             startActivity(intent);
             finish();
-       /* }*/
+        }
     }
 
     @Override

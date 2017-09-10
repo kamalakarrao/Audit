@@ -38,7 +38,37 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        CreateTable(db, Constants.TABLE_WORKAREA_1F);
+        CreateTable(db, Constants.TABLE_WORKAREA_1F_ODC_1);
+        CreateTable(db, Constants.TABLE_WORKAREA_1F_ODC_2);
+        CreateTable(db, Constants.TABLE_WORKAREA_1F_ODC_3);
+        CreateTable(db, Constants.TABLE_WORKAREA_1F_ODC_4);
+        CreateTable(db, Constants.TABLE_WORKAREA_1F_ODC_5);
+
+        CreateTable(db, Constants.TABLE_WORKAREA_2F_ODC_1);
+        CreateTable(db, Constants.TABLE_WORKAREA_2F_ODC_2);
+        CreateTable(db, Constants.TABLE_WORKAREA_2F_ODC_3);
+        CreateTable(db, Constants.TABLE_WORKAREA_2F_ODC_4);
+        CreateTable(db, Constants.TABLE_WORKAREA_2F_ODC_5);
+
+        CreateTable(db, Constants.TABLE_WORKAREA_3F_ODC_1);
+        CreateTable(db, Constants.TABLE_WORKAREA_3F_ODC_2);
+        CreateTable(db, Constants.TABLE_WORKAREA_3F_ODC_3);
+        CreateTable(db, Constants.TABLE_WORKAREA_3F_ODC_4);
+        CreateTable(db, Constants.TABLE_WORKAREA_3F_ODC_5);
+
+
+        CreateTable(db, Constants.TABLE_WORKAREA_4F_ODC_1);
+        CreateTable(db, Constants.TABLE_WORKAREA_4F_ODC_2);
+        CreateTable(db, Constants.TABLE_WORKAREA_4F_ODC_3);
+        CreateTable(db, Constants.TABLE_WORKAREA_4F_ODC_4);
+
+
+        CreateTable(db, Constants.TABLE_WORKAREA_5F_ODC_1);
+        CreateTable(db, Constants.TABLE_WORKAREA_5F_ODC_2);
+        CreateTable(db, Constants.TABLE_WORKAREA_5F_ODC_3);
+        CreateTable(db, Constants.TABLE_WORKAREA_5F_ODC_4);
+
+
 
         CreateTable(db, Constants.TABLE_DATACENTER_2F);
         CreateTable(db, Constants.TABLE_ELECTRICALROOM_1F);
@@ -112,7 +142,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
         // Drop older table if existed
-        DropTable(db, Constants.TABLE_WORKAREA_1F);
+
         DropTable(db, Constants.TABLE_DATACENTER_2F);
         DropTable(db, Constants.TABLE_ELECTRICALROOM_1F);
         DropTable(db, Constants.TABLE_ELECTRICALROOM_2F);
@@ -160,6 +190,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         DropTable(db, Constants.TABLE_5F_ODC_4);
 
 
+        DropTable(db, Constants.TABLE_WORKAREA_1F_ODC_1);
+        DropTable(db, Constants.TABLE_WORKAREA_1F_ODC_2);
+        DropTable(db, Constants.TABLE_WORKAREA_1F_ODC_3);
+        DropTable(db, Constants.TABLE_WORKAREA_1F_ODC_4);
+        DropTable(db, Constants.TABLE_WORKAREA_1F_ODC_5);
+
+        DropTable(db, Constants.TABLE_WORKAREA_2F_ODC_1);
+        DropTable(db, Constants.TABLE_WORKAREA_2F_ODC_2);
+        DropTable(db, Constants.TABLE_WORKAREA_2F_ODC_3);
+        DropTable(db, Constants.TABLE_WORKAREA_2F_ODC_4);
+        DropTable(db, Constants.TABLE_WORKAREA_2F_ODC_5);
+
+        DropTable(db, Constants.TABLE_WORKAREA_3F_ODC_1);
+        DropTable(db, Constants.TABLE_WORKAREA_3F_ODC_2);
+        DropTable(db, Constants.TABLE_WORKAREA_3F_ODC_3);
+        DropTable(db, Constants.TABLE_WORKAREA_3F_ODC_4);
+        DropTable(db, Constants.TABLE_WORKAREA_3F_ODC_5);
+
+
+        DropTable(db, Constants.TABLE_WORKAREA_4F_ODC_1);
+        DropTable(db, Constants.TABLE_WORKAREA_4F_ODC_2);
+        DropTable(db, Constants.TABLE_WORKAREA_4F_ODC_3);
+        DropTable(db, Constants.TABLE_WORKAREA_4F_ODC_4);
+
+
+        DropTable(db, Constants.TABLE_WORKAREA_5F_ODC_1);
+        DropTable(db, Constants.TABLE_WORKAREA_5F_ODC_2);
+        DropTable(db, Constants.TABLE_WORKAREA_5F_ODC_3);
+        DropTable(db, Constants.TABLE_WORKAREA_5F_ODC_4);
 
 
         db.execSQL("DROP TABLE IF EXISTS " + "audit_details");
