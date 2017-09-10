@@ -24,27 +24,28 @@ import java.util.List;
 
 public class ReviewScreen extends AppCompatActivity {
 
+    int floor_no;
     private ViewGroup mLinearLayout;
     private Button exptable;
     private DatabaseHandler db;
     private ArrayList<String> question_chk, yes_chk, no_chk, remarks_chk;
     private String table_name,databaseName;
 
-
     @Override
     public void onBackPressed() {
 
-        if (table_name.contains("floor")) {
+   /*     if (table_name.contains("floor")) {
             Intent intent = new Intent(this, ODC_Screen.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
-        } else {
+        } else {*/
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("floor_no", floor_no);
             startActivity(intent);
             finish();
-        }
+       /* }*/
     }
 
     @Override
@@ -56,7 +57,7 @@ public class ReviewScreen extends AppCompatActivity {
         mLinearLayout = (ViewGroup) findViewById(R.id.l_layout);
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-
+        floor_no = pref.getInt("floor_no", 0);
         databaseName = pref.getString("database_name", "None");
 
 

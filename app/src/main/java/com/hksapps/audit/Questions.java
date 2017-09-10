@@ -432,6 +432,9 @@ public class Questions extends AppCompatActivity {
             }
         });
 
+
+        setTitle(table_name.substring(0, 1).toUpperCase() + table_name.substring(1, table_name.length()).toLowerCase());
+
     }
 
     private void getDataFromDb() {

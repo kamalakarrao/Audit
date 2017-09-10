@@ -39,11 +39,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         CreateTable(db, Constants.TABLE_WORKAREA_1F);
+
         CreateTable(db, Constants.TABLE_DATACENTER_2F);
         CreateTable(db, Constants.TABLE_ELECTRICALROOM_1F);
+        CreateTable(db, Constants.TABLE_ELECTRICALROOM_2F);
+        CreateTable(db, Constants.TABLE_ELECTRICALROOM_3F);
+        CreateTable(db, Constants.TABLE_ELECTRICALROOM_4F);
+        CreateTable(db, Constants.TABLE_ELECTRICALROOM_5F);
         CreateTable(db, Constants.TABLE_SECURITYROOM_1F);
         CreateTable(db, Constants.TABLE_UPSROOM_1F);
         CreateTable(db, Constants.TABLE_COMMONAREA_1F);
+        CreateTable(db, Constants.TABLE_COMMONAREA_2F);
+        CreateTable(db, Constants.TABLE_COMMONAREA_3F);
+        CreateTable(db, Constants.TABLE_COMMONAREA_4F);
+        CreateTable(db, Constants.TABLE_COMMONAREA_5F);
 
         CreateTable(db, Constants.TABLE_1F_ODC_1);
         CreateTable(db, Constants.TABLE_1F_ODC_2);
@@ -106,9 +115,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         DropTable(db, Constants.TABLE_WORKAREA_1F);
         DropTable(db, Constants.TABLE_DATACENTER_2F);
         DropTable(db, Constants.TABLE_ELECTRICALROOM_1F);
+        DropTable(db, Constants.TABLE_ELECTRICALROOM_2F);
+        DropTable(db, Constants.TABLE_ELECTRICALROOM_3F);
+        DropTable(db, Constants.TABLE_ELECTRICALROOM_4F);
+        DropTable(db, Constants.TABLE_ELECTRICALROOM_5F);
         DropTable(db, Constants.TABLE_SECURITYROOM_1F);
         DropTable(db, Constants.TABLE_UPSROOM_1F);
         DropTable(db, Constants.TABLE_COMMONAREA_1F);
+        DropTable(db, Constants.TABLE_COMMONAREA_2F);
+        DropTable(db, Constants.TABLE_COMMONAREA_3F);
+        DropTable(db, Constants.TABLE_COMMONAREA_4F);
+        DropTable(db, Constants.TABLE_COMMONAREA_5F);
 
         DropTable(db, Constants.TABLE_1F_ODC_1);
         DropTable(db, Constants.TABLE_1F_ODC_2);

@@ -320,8 +320,70 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                intent_odc = new Intent(MainActivity.this, OdcWorkHubRoom.class);
+                intent_odc.putExtra("floor_no", floor_no);
+                intent_odc.putExtra("odc_no", 1);
+                startActivity(intent_odc);
+
+
             }
         });
+
+
+        odc2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                intent_odc = new Intent(MainActivity.this, OdcWorkHubRoom.class);
+                intent_odc.putExtra("floor_no", floor_no);
+                intent_odc.putExtra("odc_no", 2);
+                startActivity(intent_odc);
+
+
+            }
+        });
+
+        odc3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                intent_odc = new Intent(MainActivity.this, OdcWorkHubRoom.class);
+                intent_odc.putExtra("floor_no", floor_no);
+                intent_odc.putExtra("odc_no", 3);
+                startActivity(intent_odc);
+
+
+            }
+        });
+
+
+        odc4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                intent_odc = new Intent(MainActivity.this, OdcWorkHubRoom.class);
+                intent_odc.putExtra("floor_no", floor_no);
+                intent_odc.putExtra("odc_no", 4);
+                startActivity(intent_odc);
+
+
+            }
+        });
+
+
+        odc5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                intent_odc = new Intent(MainActivity.this, OdcWorkHubRoom.class);
+                intent_odc.putExtra("floor_no", floor_no);
+                intent_odc.putExtra("odc_no", 5);
+                startActivity(intent_odc);
+
+
+            }
+        });
+
 
 
         ElectricalRoom.setOnClickListener(new View.OnClickListener() {
