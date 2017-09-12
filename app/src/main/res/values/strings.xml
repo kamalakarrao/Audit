@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Audit</string>
+    <string name="app_name">Site Security Audit</string>
     <string name="title_activity_first_screen">FirstScreen</string>
 </resources>
